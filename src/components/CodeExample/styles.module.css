@@ -1,0 +1,38 @@
+.codeBlockOverlayContainer {
+    position: relative;
+}
+
+.codeBlockOverlayGithubIcon {
+    position: absolute;
+    right: calc(var(--ifm-pre-padding) / 2);
+    bottom: calc(var(--ifm-pre-padding) / 2);
+
+    width: 2.125rem;
+    height: 2.125rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--prism-background-color);
+    color: var(--prism-color);
+    border: 1px solid var(--ifm-color-emphasis-300);
+    border-radius: var(--ifm-global-radius);
+}
+
+.counterOffset5 {
+    [class^=codeBlockLines] {
+        counter-reset: line-count 5;
+    }
+}
+
+.counterOffset6 {
+    [class^=codeBlockLines] {
+        counter-reset: line-count 6;
+    }
+}
+
+.counterOffset7 {
+    [class^=codeBlockLines] {
+        counter-reset: line-count 7;
+    }
+}
