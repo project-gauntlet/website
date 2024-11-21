@@ -1,0 +1,1768 @@
+[
+  {
+    "type": "text_part",
+    "internalName": "text_part",
+    "props": [
+      {
+        "name": "value",
+        "description": "",
+        "optional": false,
+        "type": {
+          "type": "string"
+        }
+      }
+    ]
+  },
+  {
+    "type": "standard",
+    "internalName": "action",
+    "name": "Action",
+    "description": "Adds action entry to the action panel.\nCan be executed either by clicking the button or by pressing the shortcut",
+    "props": [
+      {
+        "name": "id",
+        "description": "The identifier of an action. Referenced in [plugin manifest]($LINK$__PLUGIN_MANIFEST__) to assign shortcut to button in UI",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "label",
+        "description": "Text displayed in UI on button",
+        "optional": false,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "onAction",
+        "description": "Function that is called when the button in UI is clicked or the shortcut is pressed",
+        "optional": false,
+        "type": {
+          "type": "function",
+          "arguments": []
+        }
+      }
+    ],
+    "children": {
+      "type": "none"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "action_panel_section",
+    "name": "ActionPanelSection",
+    "description": "Action Panel Section groups multiple Actions together under the one name",
+    "props": [
+      {
+        "name": "title",
+        "description": "Text displayed in UI in popup on top of the section",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      }
+    ],
+    "children": {
+      "type": "members",
+      "ordered_members": {
+        "Action": {
+          "componentInternalName": "action",
+          "componentName": "Action",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        }
+      },
+      "per_type_members": {}
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "action_panel",
+    "name": "ActionPanel",
+    "description": "Actions are one of the ways to add interactivity to the UI.\nAction Panel is a popup at the right bottom of the window that contains all Actions",
+    "props": [
+      {
+        "name": "title",
+        "description": "Text displayed in UI on top of the popup ",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      }
+    ],
+    "children": {
+      "type": "members",
+      "ordered_members": {
+        "Action": {
+          "componentInternalName": "action",
+          "componentName": "Action",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        },
+        "Section": {
+          "componentInternalName": "action_panel_section",
+          "componentName": "ActionPanelSection",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        }
+      },
+      "per_type_members": {}
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "metadata_link",
+    "name": "MetadataLink",
+    "description": "Link with a title ",
+    "props": [
+      {
+        "name": "label",
+        "description": "Name of the value",
+        "optional": false,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "href",
+        "description": "Clickable link",
+        "optional": false,
+        "type": {
+          "type": "string"
+        }
+      }
+    ],
+    "children": {
+      "type": "string",
+      "textPartInternalName": "text_part",
+      "description": "Text displayed in the UI "
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "metadata_tag_item",
+    "name": "MetadataTagItem",
+    "description": "Tag item",
+    "props": [
+      {
+        "name": "onClick",
+        "description": "Function that will be executed when user clicks on the tag",
+        "optional": true,
+        "type": {
+          "type": "function",
+          "arguments": []
+        }
+      }
+    ],
+    "children": {
+      "type": "string",
+      "textPartInternalName": "text_part",
+      "description": "Tag value displayed in the UI "
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "metadata_tag_list",
+    "name": "MetadataTagList",
+    "description": "List of tags with a title\nTags can be used as clickable button",
+    "props": [
+      {
+        "name": "label",
+        "description": "Name of the value",
+        "optional": false,
+        "type": {
+          "type": "string"
+        }
+      }
+    ],
+    "children": {
+      "type": "members",
+      "ordered_members": {
+        "Item": {
+          "componentInternalName": "metadata_tag_item",
+          "componentName": "MetadataTagItem",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        }
+      },
+      "per_type_members": {}
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "metadata_separator",
+    "name": "MetadataSeparator",
+    "description": "Horizontal separator that allows to visually divide list of values",
+    "props": [],
+    "children": {
+      "type": "none"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "metadata_value",
+    "name": "MetadataValue",
+    "description": "Simple string value with a title",
+    "props": [
+      {
+        "name": "label",
+        "description": "Name of the value",
+        "optional": false,
+        "type": {
+          "type": "string"
+        }
+      }
+    ],
+    "children": {
+      "type": "string",
+      "textPartInternalName": "text_part",
+      "description": "Value displayed in the UI "
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "metadata_icon",
+    "name": "MetadataIcon",
+    "description": "Icon value with a title ",
+    "props": [
+      {
+        "name": "icon",
+        "description": "Icon displayed under the label",
+        "optional": false,
+        "type": {
+          "type": "shared_type_ref",
+          "name": "Icons"
+        }
+      },
+      {
+        "name": "label",
+        "description": "Name of the value",
+        "optional": false,
+        "type": {
+          "type": "string"
+        }
+      }
+    ],
+    "children": {
+      "type": "none"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "metadata",
+    "name": "Metadata",
+    "description": "Metadata is a component that displays list of name-value pairs. Can contain interactive parts",
+    "props": [],
+    "children": {
+      "type": "members",
+      "ordered_members": {
+        "TagList": {
+          "componentInternalName": "metadata_tag_list",
+          "componentName": "MetadataTagList",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        },
+        "Link": {
+          "componentInternalName": "metadata_link",
+          "componentName": "MetadataLink",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        },
+        "Value": {
+          "componentInternalName": "metadata_value",
+          "componentName": "MetadataValue",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        },
+        "Icon": {
+          "componentInternalName": "metadata_icon",
+          "componentName": "MetadataIcon",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        },
+        "Separator": {
+          "componentInternalName": "metadata_separator",
+          "componentName": "MetadataSeparator",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        }
+      },
+      "per_type_members": {}
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "image",
+    "name": "Image",
+    "description": "Component that displays arbitrary image",
+    "props": [
+      {
+        "name": "source",
+        "description": "Image data. Supported formats: `png`, `gif`, `jpg`, `webp`, `tiff`",
+        "optional": false,
+        "type": {
+          "type": "shared_type_ref",
+          "name": "Image"
+        }
+      }
+    ],
+    "children": {
+      "type": "none"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "h1",
+    "name": "H1",
+    "description": "H1 Header",
+    "props": [],
+    "children": {
+      "type": "string",
+      "textPartInternalName": "text_part",
+      "description": "Header text"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "h2",
+    "name": "H2",
+    "description": "H2 Header",
+    "props": [],
+    "children": {
+      "type": "string",
+      "textPartInternalName": "text_part",
+      "description": "Header text"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "h3",
+    "name": "H3",
+    "description": "H3 Header",
+    "props": [],
+    "children": {
+      "type": "string",
+      "textPartInternalName": "text_part",
+      "description": "Header text"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "h4",
+    "name": "H4",
+    "description": "H4 Header",
+    "props": [],
+    "children": {
+      "type": "string",
+      "textPartInternalName": "text_part",
+      "description": "Header text"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "h5",
+    "name": "H5",
+    "description": "H5 Header",
+    "props": [],
+    "children": {
+      "type": "string",
+      "textPartInternalName": "text_part",
+      "description": "Header text"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "h6",
+    "name": "H6",
+    "description": "H6 Header",
+    "props": [],
+    "children": {
+      "type": "string",
+      "textPartInternalName": "text_part",
+      "description": "Header text"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "horizontal_break",
+    "name": "HorizontalBreak",
+    "description": "Horizontal line that divides the content",
+    "props": [],
+    "children": {
+      "type": "none"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "code_block",
+    "name": "CodeBlock",
+    "description": "Block of text that is represented as a code",
+    "props": [],
+    "children": {
+      "type": "string",
+      "textPartInternalName": "text_part",
+      "description": "Text content of the code block"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "paragraph",
+    "name": "Paragraph",
+    "description": "Text paragraph",
+    "props": [],
+    "children": {
+      "type": "string",
+      "textPartInternalName": "text_part",
+      "description": "Text content of the paragraph"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "content",
+    "name": "Content",
+    "description": "A container for a set of non-interactable components.\nUsed in a variety of places like [Detail]($COMPONENT$__DETAIL__), [Inline]($COMPONENT$__INLINE__) and [GridItem]($COMPONENT$__GRID_ITEM__).\nBy utilizing the power of React the content can also be made dynamic",
+    "props": [],
+    "children": {
+      "type": "members",
+      "ordered_members": {
+        "Paragraph": {
+          "componentInternalName": "paragraph",
+          "componentName": "Paragraph",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        },
+        "Image": {
+          "componentInternalName": "image",
+          "componentName": "Image",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        },
+        "H1": {
+          "componentInternalName": "h1",
+          "componentName": "H1",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        },
+        "H2": {
+          "componentInternalName": "h2",
+          "componentName": "H2",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        },
+        "H3": {
+          "componentInternalName": "h3",
+          "componentName": "H3",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        },
+        "H4": {
+          "componentInternalName": "h4",
+          "componentName": "H4",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        },
+        "H5": {
+          "componentInternalName": "h5",
+          "componentName": "H5",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        },
+        "H6": {
+          "componentInternalName": "h6",
+          "componentName": "H6",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        },
+        "HorizontalBreak": {
+          "componentInternalName": "horizontal_break",
+          "componentName": "HorizontalBreak",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        },
+        "CodeBlock": {
+          "componentInternalName": "code_block",
+          "componentName": "CodeBlock",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        }
+      },
+      "per_type_members": {}
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "detail",
+    "name": "Detail",
+    "description": "Detail is a root component that contains a possibly dynamic, non-interactable [Content]($COMPONENT$__CONTENT__) and an optional side panel",
+    "props": [
+      {
+        "name": "isLoading",
+        "description": "If `true` loading bar is shown above content",
+        "optional": true,
+        "type": {
+          "type": "boolean"
+        }
+      },
+      {
+        "name": "actions",
+        "description": "Allows to define an Action Panel for this view\nEvery root component has such property",
+        "optional": true,
+        "type": {
+          "type": "component",
+          "reference": {
+            "componentInternalName": "action_panel",
+            "componentName": "ActionPanel",
+            "arity": {
+              "type": "zero_or_one"
+            }
+          }
+        }
+      }
+    ],
+    "children": {
+      "type": "members",
+      "ordered_members": {},
+      "per_type_members": {
+        "Metadata": {
+          "componentInternalName": "metadata",
+          "componentName": "Metadata",
+          "arity": {
+            "type": "zero_or_one"
+          }
+        },
+        "Content": {
+          "componentInternalName": "content",
+          "componentName": "Content",
+          "arity": {
+            "type": "zero_or_one"
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "text_field",
+    "name": "TextField",
+    "description": "Text field input",
+    "props": [
+      {
+        "name": "label",
+        "description": "Text displayed in UI to the left of the input field itself",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "value",
+        "description": "String value of the field. Can be used to implement controlled form",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "onChange",
+        "description": "Function that is called when the value of the text value in field was changed",
+        "optional": true,
+        "type": {
+          "type": "function",
+          "arguments": [
+            {
+              "name": "value",
+              "description": "",
+              "optional": true,
+              "type": {
+                "type": "string"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "children": {
+      "type": "none"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "password_field",
+    "name": "PasswordField",
+    "description": "Text field input with hidden value ",
+    "props": [
+      {
+        "name": "label",
+        "description": "Text displayed in UI to the left of the input field itself",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "value",
+        "description": "String value of the field. Can be used to implement controlled form",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "onChange",
+        "description": "Function that is called when the value of the text value in field was changed",
+        "optional": true,
+        "type": {
+          "type": "function",
+          "arguments": [
+            {
+              "name": "value",
+              "description": "",
+              "optional": true,
+              "type": {
+                "type": "string"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "children": {
+      "type": "none"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "checkbox",
+    "name": "Checkbox",
+    "description": "Checkbox is a type of form input that produces boolean value, either `true` or `false`",
+    "props": [
+      {
+        "name": "label",
+        "description": "Text displayed in UI to the left of the checkbox itself",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "title",
+        "description": "Text displayed in UI to the right of the checkbox itself",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "value",
+        "description": "Value of the checkbox. Can be used to implement controlled form",
+        "optional": true,
+        "type": {
+          "type": "boolean"
+        }
+      },
+      {
+        "name": "onChange",
+        "description": "Function that is called when the value of the checkbox was changed",
+        "optional": true,
+        "type": {
+          "type": "function",
+          "arguments": [
+            {
+              "name": "value",
+              "description": "",
+              "optional": false,
+              "type": {
+                "type": "boolean"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "children": {
+      "type": "none"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "date_picker",
+    "name": "DatePicker",
+    "description": "Date Picker is a type of form input that produces date value represented as a string in `YYYY-MM-DD` format",
+    "props": [
+      {
+        "name": "label",
+        "description": "Text displayed in UI to the left of the date picker itself",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "value",
+        "description": "Value of the Date Picker. Can be used to implement controlled form",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "onChange",
+        "description": "Function that is called when the value of the data picker was changed",
+        "optional": true,
+        "type": {
+          "type": "function",
+          "arguments": [
+            {
+              "name": "value",
+              "description": "",
+              "optional": true,
+              "type": {
+                "type": "string"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "children": {
+      "type": "none"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "select_item",
+    "name": "SelectItem",
+    "description": "Predefined item that can be selected from the select form input list",
+    "props": [
+      {
+        "name": "value",
+        "description": "Internal value of the selected item",
+        "optional": false,
+        "type": {
+          "type": "string"
+        }
+      }
+    ],
+    "children": {
+      "type": "string",
+      "textPartInternalName": "text_part",
+      "description": "Value displayed in the UI"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "select",
+    "name": "Select",
+    "description": "Field that allows to select a single value in a predefined list ",
+    "props": [
+      {
+        "name": "label",
+        "description": "Text displayed in UI to the left of the input itself",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "value",
+        "description": "String value of the field. Can be used to implement controlled form",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "onChange",
+        "description": "Function that is called when the selected item was changed",
+        "optional": true,
+        "type": {
+          "type": "function",
+          "arguments": [
+            {
+              "name": "value",
+              "description": "",
+              "optional": true,
+              "type": {
+                "type": "string"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "children": {
+      "type": "members",
+      "ordered_members": {
+        "Item": {
+          "componentInternalName": "select_item",
+          "componentName": "SelectItem",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        }
+      },
+      "per_type_members": {}
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "separator",
+    "name": "Separator",
+    "description": "Horizontal line to visually separate list of field",
+    "props": [],
+    "children": {
+      "type": "none"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "form",
+    "name": "Form",
+    "description": "Form is a root component that contains a set of input field of various types. Use it to allow users to provide data",
+    "props": [
+      {
+        "name": "isLoading",
+        "description": "If `true` loading bar is shown above content",
+        "optional": true,
+        "type": {
+          "type": "boolean"
+        }
+      },
+      {
+        "name": "actions",
+        "description": "Allows to define an Action Panel for this view\nEvery root component has such property",
+        "optional": true,
+        "type": {
+          "type": "component",
+          "reference": {
+            "componentInternalName": "action_panel",
+            "componentName": "ActionPanel",
+            "arity": {
+              "type": "zero_or_one"
+            }
+          }
+        }
+      }
+    ],
+    "children": {
+      "type": "members",
+      "ordered_members": {
+        "TextField": {
+          "componentInternalName": "text_field",
+          "componentName": "TextField",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        },
+        "PasswordField": {
+          "componentInternalName": "password_field",
+          "componentName": "PasswordField",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        },
+        "Checkbox": {
+          "componentInternalName": "checkbox",
+          "componentName": "Checkbox",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        },
+        "DatePicker": {
+          "componentInternalName": "date_picker",
+          "componentName": "DatePicker",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        },
+        "Select": {
+          "componentInternalName": "select",
+          "componentName": "Select",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        },
+        "Separator": {
+          "componentInternalName": "separator",
+          "componentName": "Separator",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        }
+      },
+      "per_type_members": {}
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "inline_separator",
+    "name": "InlineSeparator",
+    "description": "Separates inline content sections.\nSeparators are present even when not specified explicitly.\nSpecifying separator explicitly allows to define custom icon",
+    "props": [
+      {
+        "name": "icon",
+        "description": "Icon to be displayed",
+        "optional": true,
+        "type": {
+          "type": "shared_type_ref",
+          "name": "Icons"
+        }
+      }
+    ],
+    "children": {
+      "type": "none"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "inline",
+    "name": "Inline",
+    "description": "Inline is a root component used with `inline-view` entrypoint type.\nDisplayed right under search bar in main view",
+    "props": [
+      {
+        "name": "actions",
+        "description": "Allows to define an Action Panel for this view\nEvery root component has such property",
+        "optional": true,
+        "type": {
+          "type": "component",
+          "reference": {
+            "componentInternalName": "action_panel",
+            "componentName": "ActionPanel",
+            "arity": {
+              "type": "zero_or_one"
+            }
+          }
+        }
+      }
+    ],
+    "children": {
+      "type": "members",
+      "ordered_members": {
+        "Left": {
+          "componentInternalName": "content",
+          "componentName": "Content",
+          "arity": {
+            "type": "zero_or_one"
+          }
+        },
+        "Separator": {
+          "componentInternalName": "inline_separator",
+          "componentName": "InlineSeparator",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        },
+        "Right": {
+          "componentInternalName": "content",
+          "componentName": "Content",
+          "arity": {
+            "type": "zero_or_one"
+          }
+        },
+        "Center": {
+          "componentInternalName": "content",
+          "componentName": "Content",
+          "arity": {
+            "type": "zero_or_one"
+          }
+        }
+      },
+      "per_type_members": {}
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "empty_view",
+    "name": "EmptyView",
+    "description": "View that will be displayed if there is no grid or list items available.",
+    "props": [
+      {
+        "name": "title",
+        "description": "Main text to display in the middle of the view.",
+        "optional": false,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "description",
+        "description": "Optional description to display in the middle of the view under `title`.\nUse it to give longer explanation for empty view",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "image",
+        "description": "Image to display in the middle of the view",
+        "optional": true,
+        "type": {
+          "type": "shared_type_ref",
+          "name": "Image"
+        }
+      }
+    ],
+    "children": {
+      "type": "none"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "accessory_icon",
+    "name": "IconAccessory",
+    "description": "An accessory with icon and optional tooltip ",
+    "props": [
+      {
+        "name": "icon",
+        "description": "Icon of the accessory",
+        "optional": false,
+        "type": {
+          "type": "shared_type_ref",
+          "name": "Image"
+        }
+      },
+      {
+        "name": "tooltip",
+        "description": "A tooltip shown when the accessory is hovered.",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      }
+    ],
+    "children": {
+      "type": "none"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "accessory_text",
+    "name": "TextAccessory",
+    "description": "An accessory with text and optional icon and tooltip ",
+    "props": [
+      {
+        "name": "text",
+        "description": "Text of the accessory",
+        "optional": false,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "icon",
+        "description": "An icon that is displayed to the left side of the text",
+        "optional": true,
+        "type": {
+          "type": "shared_type_ref",
+          "name": "Image"
+        }
+      },
+      {
+        "name": "tooltip",
+        "description": "A tooltip shown when the accessory is hovered.",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      }
+    ],
+    "children": {
+      "type": "none"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "search_bar",
+    "name": "SearchBar",
+    "description": "Adds search bar above the content",
+    "props": [
+      {
+        "name": "value",
+        "description": "",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "placeholder",
+        "description": "",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "onChange",
+        "description": "",
+        "optional": true,
+        "type": {
+          "type": "function",
+          "arguments": [
+            {
+              "name": "value",
+              "description": "",
+              "optional": true,
+              "type": {
+                "type": "string"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "children": {
+      "type": "none"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "list_item",
+    "name": "ListItem",
+    "description": "Item on the list",
+    "props": [
+      {
+        "name": "title",
+        "description": "Title of the list item",
+        "optional": false,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "subtitle",
+        "description": "Smaller text displayed next to the title",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "icon",
+        "description": "Icon or custom image displayed on the left side of the list item",
+        "optional": true,
+        "type": {
+          "type": "shared_type_ref",
+          "name": "Image"
+        }
+      },
+      {
+        "name": "accessories",
+        "description": "List of accessories displayed on the right side of the list item",
+        "optional": true,
+        "type": {
+          "type": "array",
+          "item": {
+            "type": "union",
+            "items": [
+              {
+                "type": "component",
+                "reference": {
+                  "componentInternalName": "accessory_text",
+                  "componentName": "TextAccessory",
+                  "arity": {
+                    "type": "zero_or_more"
+                  }
+                }
+              },
+              {
+                "type": "component",
+                "reference": {
+                  "componentInternalName": "accessory_icon",
+                  "componentName": "IconAccessory",
+                  "arity": {
+                    "type": "zero_or_more"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "onClick",
+        "description": "Function that will be called when user selects an item on the grid.",
+        "optional": true,
+        "type": {
+          "type": "function",
+          "arguments": []
+        }
+      }
+    ],
+    "children": {
+      "type": "none"
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "list_section",
+    "name": "ListSection",
+    "description": "List section allows to group a list of the List Items under some name",
+    "props": [
+      {
+        "name": "title",
+        "description": "Title of the section",
+        "optional": false,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "subtitle",
+        "description": "Smaller text displayed next to the title",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      }
+    ],
+    "children": {
+      "type": "members",
+      "ordered_members": {
+        "Item": {
+          "componentInternalName": "list_item",
+          "componentName": "ListItem",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        }
+      },
+      "per_type_members": {}
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "list",
+    "name": "List",
+    "description": "List is a root component that allows to display a list of items.",
+    "props": [
+      {
+        "name": "actions",
+        "description": "Allows to define an Action Panel for this view\nEvery root component has such property",
+        "optional": true,
+        "type": {
+          "type": "component",
+          "reference": {
+            "componentInternalName": "action_panel",
+            "componentName": "ActionPanel",
+            "arity": {
+              "type": "zero_or_one"
+            }
+          }
+        }
+      },
+      {
+        "name": "isLoading",
+        "description": "If `true` loading bar is shown above content",
+        "optional": true,
+        "type": {
+          "type": "boolean"
+        }
+      }
+    ],
+    "children": {
+      "type": "members",
+      "ordered_members": {
+        "Item": {
+          "componentInternalName": "list_item",
+          "componentName": "ListItem",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        },
+        "Section": {
+          "componentInternalName": "list_section",
+          "componentName": "ListSection",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        }
+      },
+      "per_type_members": {
+        "SearchBar": {
+          "componentInternalName": "search_bar",
+          "componentName": "SearchBar",
+          "arity": {
+            "type": "zero_or_one"
+          }
+        },
+        "EmptyView": {
+          "componentInternalName": "empty_view",
+          "componentName": "EmptyView",
+          "arity": {
+            "type": "zero_or_one"
+          }
+        },
+        "Detail": {
+          "componentInternalName": "detail",
+          "componentName": "Detail",
+          "arity": {
+            "type": "zero_or_one"
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "grid_item",
+    "name": "GridItem",
+    "description": "Item on the grid",
+    "props": [
+      {
+        "name": "title",
+        "description": "Title displayed under the grid item",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "subtitle",
+        "description": "Smaller text displayed next to the title",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "accessory",
+        "description": "Accessory displayed on the right bottom of the grid item",
+        "optional": true,
+        "type": {
+          "type": "component",
+          "reference": {
+            "componentInternalName": "accessory_icon",
+            "componentName": "IconAccessory",
+            "arity": {
+              "type": "zero_or_one"
+            }
+          }
+        }
+      },
+      {
+        "name": "onClick",
+        "description": "Function that will be called when user selects an item on the grid.",
+        "optional": true,
+        "type": {
+          "type": "function",
+          "arguments": []
+        }
+      }
+    ],
+    "children": {
+      "type": "members",
+      "ordered_members": {},
+      "per_type_members": {
+        "Content": {
+          "componentInternalName": "content",
+          "componentName": "Content",
+          "arity": {
+            "type": "one"
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "grid_section",
+    "name": "GridSection",
+    "description": "Grid section allows to group a list of the Grid Items under some name",
+    "props": [
+      {
+        "name": "title",
+        "description": "Title of the section",
+        "optional": false,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "subtitle",
+        "description": "Smaller text displayed next to the title",
+        "optional": true,
+        "type": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "columns",
+        "description": "Amount of columns that the grid in this section will have",
+        "optional": true,
+        "type": {
+          "type": "number"
+        }
+      }
+    ],
+    "children": {
+      "type": "members",
+      "ordered_members": {
+        "Item": {
+          "componentInternalName": "grid_item",
+          "componentName": "GridItem",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        }
+      },
+      "per_type_members": {}
+    }
+  },
+  {
+    "type": "standard",
+    "internalName": "grid",
+    "name": "Grid",
+    "description": "Grid is a root component that allows to display a list of items represented in form of a grid.",
+    "props": [
+      {
+        "name": "isLoading",
+        "description": "If `true` loading bar is shown above content",
+        "optional": true,
+        "type": {
+          "type": "boolean"
+        }
+      },
+      {
+        "name": "actions",
+        "description": "Allows to define an Action Panel for this view\nEvery root component has such property",
+        "optional": true,
+        "type": {
+          "type": "component",
+          "reference": {
+            "componentInternalName": "action_panel",
+            "componentName": "ActionPanel",
+            "arity": {
+              "type": "zero_or_one"
+            }
+          }
+        }
+      },
+      {
+        "name": "columns",
+        "description": "Amount of columns that the grid will have",
+        "optional": true,
+        "type": {
+          "type": "number"
+        }
+      }
+    ],
+    "children": {
+      "type": "members",
+      "ordered_members": {
+        "Item": {
+          "componentInternalName": "grid_item",
+          "componentName": "GridItem",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        },
+        "Section": {
+          "componentInternalName": "grid_section",
+          "componentName": "GridSection",
+          "arity": {
+            "type": "zero_or_more"
+          }
+        }
+      },
+      "per_type_members": {
+        "SearchBar": {
+          "componentInternalName": "search_bar",
+          "componentName": "SearchBar",
+          "arity": {
+            "type": "zero_or_one"
+          }
+        },
+        "EmptyView": {
+          "componentInternalName": "empty_view",
+          "componentName": "EmptyView",
+          "arity": {
+            "type": "zero_or_one"
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "root",
+    "internalName": "root",
+    "children": [
+      {
+        "componentInternalName": "detail",
+        "componentName": "Detail",
+        "arity": {
+          "type": "zero_or_one"
+        }
+      },
+      {
+        "componentInternalName": "form",
+        "componentName": "Form",
+        "arity": {
+          "type": "zero_or_one"
+        }
+      },
+      {
+        "componentInternalName": "inline",
+        "componentName": "Inline",
+        "arity": {
+          "type": "zero_or_one"
+        }
+      },
+      {
+        "componentInternalName": "list",
+        "componentName": "List",
+        "arity": {
+          "type": "zero_or_one"
+        }
+      },
+      {
+        "componentInternalName": "grid",
+        "componentName": "Grid",
+        "arity": {
+          "type": "zero_or_one"
+        }
+      }
+    ],
+    "sharedTypes": {
+      "Icons": {
+        "type": "enum",
+        "items": [
+          "PersonAdd",
+          "Airplane",
+          "Alarm",
+          "AlignCentre",
+          "AlignLeft",
+          "AlignRight",
+          "ArrowClockwise",
+          "ArrowCounterClockwise",
+          "ArrowDown",
+          "ArrowLeft",
+          "ArrowRight",
+          "ArrowUp",
+          "ArrowLeftRight",
+          "ArrowsContract",
+          "ArrowsExpand",
+          "AtSymbol",
+          "Cash",
+          "Battery",
+          "BatteryCharging",
+          "Bell",
+          "BellDisabled",
+          "Document",
+          "DocumentAdd",
+          "DocumentDelete",
+          "Bluetooth",
+          "Bold",
+          "Book",
+          "Bookmark",
+          "Box",
+          "Bug",
+          "Building",
+          "BulletPoints",
+          "Calculator",
+          "Calendar",
+          "Camera",
+          "Car",
+          "Cart",
+          "Checkmark",
+          "ChevronDown",
+          "ChevronLeft",
+          "ChevronRight",
+          "ChevronUp",
+          "ChevronExpand",
+          "Circle",
+          "Clipboard",
+          "Clock",
+          "Cloud",
+          "CloudLightning",
+          "CloudRain",
+          "CloudSnow",
+          "CloudSun",
+          "Code",
+          "Gear",
+          "Coin",
+          "Command",
+          "Compass",
+          "CreditCard",
+          "Crop",
+          "Dot",
+          "Download",
+          "Eject",
+          "ThreeDots",
+          "Envelope",
+          "Eraser",
+          "ExclamationMark",
+          "Eye",
+          "EyeDisabled",
+          "EyeDropper",
+          "Female",
+          "Film",
+          "Filter",
+          "Fingerprint",
+          "Flag",
+          "Folder",
+          "FolderAdd",
+          "FolderDelete",
+          "Forward",
+          "GameController",
+          "Virus",
+          "Gift",
+          "Glasses",
+          "Globe",
+          "Hammer",
+          "HardDrive",
+          "Headphones",
+          "Heart",
+          "Heartbeat",
+          "Hourglass",
+          "House",
+          "Image",
+          "Info",
+          "Italics",
+          "Key",
+          "Keyboard",
+          "Layers",
+          "LightBulb",
+          "LightBulbDisabled",
+          "Link",
+          "List",
+          "Lock",
+          "LockUnlocked",
+          "Male",
+          "Map",
+          "Maximize",
+          "Megaphone",
+          "MemoryModule",
+          "MemoryStick",
+          "Message",
+          "Microphone",
+          "MicrophoneDisabled",
+          "Minimize",
+          "Minus",
+          "Mobile",
+          "Moon",
+          "Mouse",
+          "Multiply",
+          "Music",
+          "Network",
+          "Paperclip",
+          "Paragraph",
+          "Pause",
+          "Pencil",
+          "Person",
+          "Phone",
+          "PieChart",
+          "Capsule",
+          "Play",
+          "Plug",
+          "Plus",
+          "Power",
+          "Printer",
+          "QuestionMark",
+          "Quotes",
+          "Receipt",
+          "PersonRemove",
+          "Repeat",
+          "Reply",
+          "Rewind",
+          "Rocket",
+          "Shield",
+          "Shuffle",
+          "Snippets",
+          "Snowflake",
+          "Star",
+          "Stop",
+          "Stopwatch",
+          "StrikeThrough",
+          "Sun",
+          "Scissors",
+          "Tag",
+          "Thermometer",
+          "Terminal",
+          "Text",
+          "TextCursor",
+          "Trash",
+          "Tree",
+          "Trophy",
+          "People",
+          "Umbrella",
+          "Underline",
+          "Upload",
+          "Wallet",
+          "Wand",
+          "Wifi",
+          "WifiDisabled",
+          "Window",
+          "Tools",
+          "Watch",
+          "XMark",
+          "Indent",
+          "Unindent"
+        ]
+      },
+      "ImageSourceUrl": {
+        "type": "object",
+        "items": {
+          "url": {
+            "type": "string"
+          }
+        }
+      },
+      "ImageSourceAsset": {
+        "type": "object",
+        "items": {
+          "asset": {
+            "type": "string"
+          }
+        }
+      },
+      "ImageSource": {
+        "type": "union",
+        "items": [
+          {
+            "type": "shared_type_ref",
+            "name": "ImageSourceUrl"
+          },
+          {
+            "type": "shared_type_ref",
+            "name": "ImageSourceAsset"
+          }
+        ]
+      },
+      "Image": {
+        "type": "union",
+        "items": [
+          {
+            "type": "shared_type_ref",
+            "name": "ImageSource"
+          },
+          {
+            "type": "shared_type_ref",
+            "name": "Icons"
+          }
+        ]
+      }
+    }
+  }
+]

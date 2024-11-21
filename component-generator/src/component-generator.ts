@@ -79,7 +79,7 @@ function findCodeSegments(fileContent: string): {
     }
 }
 
-async function readData() {
+async function readCodeExampleData() {
     const appDocsPath = path.resolve(process.cwd(), '..', 'application')
     const scenariosDocsPath = path.resolve(appDocsPath, 'scenarios')
     const pluginsDocsPath = path.resolve(scenariosDocsPath, 'plugins')
@@ -191,50 +191,74 @@ async function readData() {
         });
 }
 
-async function generate(data: GauntletGithubCodePluginData[]) {
-    const generatedPath = path.resolve(process.cwd(), '..', 'src', 'generated')
+async function generateCodeExample(generatedPath: string, data: GauntletGithubCodePluginData[]) {
+    const generatedPathCodeExample = path.resolve(generatedPath, 'code_example')
 
-    rmSync(generatedPath, { recursive: true, force: true })
-
-    mkdirSync(generatedPath)
+    mkdirSync(generatedPathCodeExample, { recursive: true })
 
     for (const plugin of data) {
-        const dir = path.resolve(generatedPath, plugin.pluginId)
+        const dir = path.resolve(generatedPathCodeExample, plugin.pluginId)
         mkdirSync(dir)
     }
 
     for (const plugin of data) {
         for (const entrypoint of plugin.entrypoints) {
 
-            const jsxPath = path.resolve(generatedPath, plugin.pluginId, `${entrypoint.entrypointId}.tsx`)
+            const jsxPath = path.resolve(generatedPathCodeExample, plugin.pluginId, `${entrypoint.entrypointId}.tsx`)
 
-            const pre = `
-import CodeExample from '@site/src/components/CodeExample';
+            createJsxWithDataInput("CodeExample", jsxPath, entrypoint.data)
+        }
+    }
+}
+
+function readComponentModel(): any {
+    const componentModelPath = path.resolve(process.cwd(), 'component_model.json')
+
+    return JSON.parse(readFileSync(componentModelPath, { encoding: "utf-8" }))
+}
+
+
+async function generatePropertyTables(generatedPath: string, components: any) {
+    const generatedPathPropsTable = path.resolve(generatedPath, 'props_table')
+
+    mkdirSync(generatedPathPropsTable, { recursive: true })
+
+    for (const component of components) {
+        const jsxPath = path.resolve(generatedPathPropsTable, `${component.internalName}.tsx`)
+
+        createJsxWithDataInput("PropsTable", jsxPath, component)
+    }
+}
+
+function createJsxWithDataInput(name: string, filePath: string, data: object) {
+    const pre = `
+import ${name} from '@site/src/components/${name}';
 import React from "react";
 import { Buffer } from "buffer";
 const data = JSON.parse(Buffer.from(\`
 `
 
-            let data = Buffer.from(JSON.stringify(entrypoint.data), "utf-8").toString('base64');
+    const serializedData = Buffer.from(JSON.stringify(data), "utf-8").toString('base64');
 
-            const post = `
+    const post = `
 \`, 'base64').toString('utf-8'));
 export default function Default(): JSX.Element {
     return (
-        <CodeExample data={data}/>
+        <${name} data={data}/>
     );
 }
 `
 
-            writeFileSync(jsxPath, `${pre}${data}${post}\n`)
-        }
-    }
+    writeFileSync(filePath, `${pre}${serializedData}${post}\n`)
 }
 
 async function run() {
-    let data = await readData();
+    const generatedPath = path.resolve(process.cwd(), '..', 'src', 'generated')
+    rmSync(generatedPath, { recursive: true, force: true })
 
-    await generate(data)
+    await generateCodeExample(generatedPath, await readCodeExampleData())
+
+    await generatePropertyTables(generatedPath, readComponentModel())
 }
 
 await run()
