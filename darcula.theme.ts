@@ -79,9 +79,7 @@ export default {
         {
             types: ["keyword"],
             style: {
-                color: green,
-                fontWeight: "bold",
-                textDecorationLine: "underline"
+                color: orange,
             }
         },
         {

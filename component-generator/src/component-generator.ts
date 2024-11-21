@@ -1,7 +1,7 @@
 import { EOL } from "node:os";
 import { readdir } from "node:fs/promises";
 import path from "node:path";
-import { readFileSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { parse as parseToml } from "toml";
 import * as process from "node:process";
 import dedent from "dedent";
@@ -19,7 +19,7 @@ interface GauntletGithubCodeEntrypointData {
         codeSegments: {
             id: string,
             value: string,
-            lines: [number, number],
+            lines?: [number, number],
             screenshotFilePath: string,
         }[]
         manifestFilePathRootRelative: string
@@ -36,13 +36,13 @@ function findCodeSegments(fileContent: string): {
     lines: string[],
     startIndex: number,
     endIndex?: number
-}[] {
+}[] | undefined {
     const lines = fileContent.split(EOL);
 
     const startString = "docs-code-segment:start";
     const endString = "docs-code-segment:end";
 
-    const segments = lines
+    return lines
         .map<{ line: string, isStart: boolean, isEnd: boolean, id?: string, index: number }>((line, index) => {
             const isStart = line.includes(startString);
             const isEnd = line.includes(endString);
@@ -70,13 +70,7 @@ function findCodeSegments(fileContent: string): {
                 }
             }
             return acc;
-        }, []);
-
-    if (segments.length > 0) {
-        return segments;
-    } else {
-        throw new Error("start or end strings not found")
-    }
+        }, [])
 }
 
 async function readCodeExampleData() {
@@ -95,7 +89,13 @@ async function readCodeExampleData() {
 
             const manifestFileContent = readFileSync(manifestFilePath, "utf8");
 
-            const manifestSegmentsArr = findCodeSegments(manifestFileContent)
+            const findCodeSegmentsResult = findCodeSegments(manifestFileContent);
+
+            if (findCodeSegmentsResult == undefined) {
+                throw new Error("segments not found")
+            }
+
+            const manifestSegmentsArr = findCodeSegmentsResult
                 .map(manifestSegment => {
                     if (manifestSegment.id == null) {
                         throw new Error(`manifest file segment doesn't have id: ${manifestFilePath}`)
@@ -126,8 +126,18 @@ async function readCodeExampleData() {
                     const codeFileContent = readFileSync(codeFilePath, "utf8");
                     const codeSegments = findCodeSegments(codeFileContent);
 
-                    const codeSegmentsResult = [];
-                    if (codeSegments.length == 1) {
+                    const codeSegmentsResult: GauntletGithubCodeEntrypointData['data']['codeSegments'] = [];
+                    if (codeSegments.length == 0) {
+                        const id = "default";
+
+                        const screenshotFilePath = path.resolve('/img', 'screenshots', pluginId, entrypointId, `${id}.png`)
+
+                        codeSegmentsResult.push({
+                            id: id,
+                            value: codeFileContent,
+                            screenshotFilePath
+                        })
+                    } else if (codeSegments.length == 1) {
                         const [codeSegment] = codeSegments
                         if (codeSegment.id != null) {
                             throw new Error(`code file segment has id: ${codeSegment.id}, ${codeFilePath}`)
@@ -155,7 +165,7 @@ async function readCodeExampleData() {
                                 return {
                                     id: codeSegment.id,
                                     value: dedent(codeSegment.lines.join(EOL)),
-                                    lines: [codeSegment.startIndex, codeSegment.endIndex!],
+                                    lines: [codeSegment.startIndex, codeSegment.endIndex!] as [number, number],
                                     screenshotFilePath
                                 }
                             })

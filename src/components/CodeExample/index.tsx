@@ -13,7 +13,7 @@ interface GauntletGithubCodeEntrypointData {
     codeSegments: {
         id: string,
         value: string,
-        lines: [number, number],
+        lines?: [number, number],
         screenshotFilePath: string,
     }[]
     manifestFilePathRootRelative: string
@@ -25,9 +25,13 @@ interface GauntletGithubCodeEntrypointData {
 }
 
 export default function Default({ data }: { data: GauntletGithubCodeEntrypointData }): JSX.Element {
-    function githubLink(rootRelativePath: string, lines: [number, number]): string {
-        const [startLine, endLine] = lines
-        return `https://github.com/project-gauntlet/gauntlet/blob/main/${rootRelativePath}#L${startLine}-L${endLine}`;
+    function githubLink(rootRelativePath: string, lines?: [number, number]): string {
+        if (lines) {
+            const [startLine, endLine] = lines
+            return `https://github.com/project-gauntlet/gauntlet/blob/main/${rootRelativePath}#L${startLine}-L${endLine}`;
+        } else {
+            return `https://github.com/project-gauntlet/gauntlet/blob/main/${rootRelativePath}`;
+        }
     }
 
     let elements = data.codeSegments
@@ -41,7 +45,7 @@ export default function Default({ data }: { data: GauntletGithubCodeEntrypointDa
                         <CodeBlock
                             language="jsx"
                             showLineNumbers
-                            className={lineNumberStyle(value.lines)}
+                            className={value.lines ? lineNumberStyle(value.lines) : undefined}
                         >
                             {value.value}
                         </CodeBlock>
