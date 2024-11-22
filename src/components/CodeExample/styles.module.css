@@ -36,3 +36,9 @@
         counter-reset: line-count 7;
     }
 }
+
+.counterOffset25 {
+    [class^=codeBlockLines] {
+        counter-reset: line-count 25;
+    }
+}

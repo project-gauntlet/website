@@ -229,14 +229,106 @@ function readComponentModel(): any {
 
 
 async function generatePropertyTables(generatedPath: string, components: any) {
-    const generatedPathPropsTable = path.resolve(generatedPath, 'props_table')
+    const generatedTablesPath = path.resolve(generatedPath, 'tables')
 
-    mkdirSync(generatedPathPropsTable, { recursive: true })
+    mkdirSync(generatedTablesPath)
 
     for (const component of components) {
-        const jsxPath = path.resolve(generatedPathPropsTable, `${component.internalName}.tsx`)
+        switch (component.type) {
+            case "text_part": {
+                break
+            }
+            case "root": {
+                break
+            }
+            case "standard": {
+                const generatedTablesComponentPath = path.resolve(generatedTablesPath, component.internalName)
 
-        createJsxWithDataInput("PropsTable", jsxPath, component)
+                mkdirSync(generatedTablesComponentPath)
+
+                createJsxWithDataInput(
+                    "Description",
+                    path.resolve(generatedTablesComponentPath, `description.tsx`),
+                    {
+                        description: component.description,
+                    }
+                )
+
+                createJsxWithDataInput(
+                    "PropsTable",
+                    path.resolve(generatedTablesComponentPath, `props.tsx`),
+                    {
+                        internalName: component.internalName,
+                        props: component.props
+                    }
+                )
+
+                switch (component.children.type) {
+                    case "none":
+                        break;
+                    case "string": {
+
+                        createJsxWithDataInput(
+                            "OrderedMembersTable",
+                            path.resolve(generatedTablesComponentPath, `ordered-members.tsx`),
+                            {
+                                tableKey: component.internalName,
+                                members: {},
+                                withString: true
+                            }
+                        )
+
+                        break;
+                    }
+                    case "members": {
+                        createJsxWithDataInput(
+                            "OrderedMembersTable",
+                            path.resolve(generatedTablesComponentPath, `ordered-members.tsx`),
+                            {
+                                tableKey: component.internalName,
+                                members: component.children.ordered_members,
+                                withString: false
+                            }
+                        )
+
+                        createJsxWithDataInput(
+                            "PerTypeMembersTable",
+                            path.resolve(generatedTablesComponentPath, `per-type-members.tsx`),
+                            {
+                                tableKey: component.internalName,
+                                members: component.children.per_type_members,
+                                withString: false
+                            }
+                        )
+
+                        break;
+                    }
+                    case "string_or_members": {
+                        createJsxWithDataInput(
+                            "OrderedMembersTable",
+                            path.resolve(generatedTablesComponentPath, `ordered-members.tsx`),
+                            {
+                                tableKey: component.internalName,
+                                members: component.children.ordered_members,
+                                withString: true
+                            }
+                        )
+
+                        createJsxWithDataInput(
+                            "PerTypeMembersTable",
+                            path.resolve(generatedTablesComponentPath, `per-type-members.tsx`),
+                            {
+                                tableKey: component.internalName,
+                                members: component.children.per_type_members,
+                                withString: true
+                            }
+                        )
+
+                        break;
+                    }
+                }
+            }
+        }
     }
 }
 

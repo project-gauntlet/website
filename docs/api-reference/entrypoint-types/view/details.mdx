@@ -3,8 +3,11 @@ title: "Detail"
 sidebar_position: 1
 sidebar_label: "Detail"
 ---
-import CodeExample from '@site/src/generated/code_example/docs_detail/content';
-import PropsTable from '@site/src/generated/props_table/list';
+import ListContentCode from '@site/src/generated/code_example/docs_list/main';
+import ListDescription from '@site/src/generated/tables/list/description';
+import ListProps from '@site/src/generated/tables/list/props';
+import ListOrderedMembers from '@site/src/generated/tables/list/ordered-members';
+import ListPerTypeMembers from '@site/src/generated/tables/list/per-type-members';
 
 :::warning
 
@@ -12,5 +15,19 @@ Work In Progress
 
 :::
 
-<CodeExample/>
-<PropsTable/>
+## API Reference
+### Details
+
+<ListDescription/>
+
+#### Example
+<ListContentCode/>
+
+#### Props
+<ListProps/>
+
+#### Children components (order-sensitive)
+<ListOrderedMembers/>
+
+#### Children components (non-order-sensitive)
+<ListPerTypeMembers/>
