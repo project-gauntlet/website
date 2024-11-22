@@ -254,14 +254,16 @@ async function generatePropertyTables(generatedPath: string, components: any) {
                     }
                 )
 
-                createJsxWithDataInput(
-                    "PropsTable",
-                    path.resolve(generatedTablesComponentPath, `props.tsx`),
-                    {
-                        internalName: component.internalName,
-                        props: component.props
-                    }
-                )
+                if (component.props.length !== 0) {
+                    createJsxWithDataInput(
+                        "PropsTable",
+                        path.resolve(generatedTablesComponentPath, `props.tsx`),
+                        {
+                            internalName: component.internalName,
+                            props: component.props
+                        }
+                    )
+                }
 
                 switch (component.children.type) {
                     case "none":
@@ -281,25 +283,29 @@ async function generatePropertyTables(generatedPath: string, components: any) {
                         break;
                     }
                     case "members": {
-                        createJsxWithDataInput(
-                            "OrderedMembersTable",
-                            path.resolve(generatedTablesComponentPath, `ordered-members.tsx`),
-                            {
-                                tableKey: component.internalName,
-                                members: component.children.ordered_members,
-                                withString: false
-                            }
-                        )
 
-                        createJsxWithDataInput(
-                            "PerTypeMembersTable",
-                            path.resolve(generatedTablesComponentPath, `per-type-members.tsx`),
-                            {
-                                tableKey: component.internalName,
-                                members: component.children.per_type_members,
-                                withString: false
-                            }
-                        )
+                        if (Object.entries(component.children.ordered_members).length !== 0) {
+                            createJsxWithDataInput(
+                                "OrderedMembersTable",
+                                path.resolve(generatedTablesComponentPath, `ordered-members.tsx`),
+                                {
+                                    tableKey: component.internalName,
+                                    members: component.children.ordered_members,
+                                    withString: false
+                                }
+                            )
+                        }
+
+                        if (Object.entries(component.children.per_type_members).length !== 0) {
+                            createJsxWithDataInput(
+                                "PerTypeMembersTable",
+                                path.resolve(generatedTablesComponentPath, `per-type-members.tsx`),
+                                {
+                                    tableKey: component.internalName,
+                                    members: component.children.per_type_members,
+                                }
+                            )
+                        }
 
                         break;
                     }
@@ -314,15 +320,16 @@ async function generatePropertyTables(generatedPath: string, components: any) {
                             }
                         )
 
-                        createJsxWithDataInput(
-                            "PerTypeMembersTable",
-                            path.resolve(generatedTablesComponentPath, `per-type-members.tsx`),
-                            {
-                                tableKey: component.internalName,
-                                members: component.children.per_type_members,
-                                withString: true
-                            }
-                        )
+                        if (Object.entries(component.children.per_type_members).length !== 0) {
+                            createJsxWithDataInput(
+                                "PerTypeMembersTable",
+                                path.resolve(generatedTablesComponentPath, `per-type-members.tsx`),
+                                {
+                                    tableKey: component.internalName,
+                                    members: component.children.per_type_members,
+                                }
+                            )
+                        }
 
                         break;
                     }

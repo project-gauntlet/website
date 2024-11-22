@@ -27,6 +27,7 @@ export default function Default({ data }: { data: Data }): JSX.Element {
                     <tr>
                         <td></td>
                         <td>string</td>
+                        <td>{renderArity({ type: "zero_or_more" })}</td>
                     </tr>
                 )}
                 {Object.entries(data.members).map(([name, componentRef]) => {

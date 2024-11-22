@@ -52,6 +52,12 @@ export default {
             }
         },
         {
+            types: ["literal-property"],
+            style: {
+                color: foreground,
+            }
+        },
+        {
             types: ["attr-name"],
             style: {
                 color: foreground,

@@ -3,7 +3,6 @@ import { ComponentRef, renderArity } from "@site/src/components/types";
 interface Data {
     tableKey: string
     members: Record<string, ComponentRef>,
-    withString: boolean
 }
 
 export default function Default({ data }: { data: Data }): JSX.Element {
