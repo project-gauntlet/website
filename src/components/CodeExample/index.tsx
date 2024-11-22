@@ -38,7 +38,6 @@ export default function Default({ data }: { data: GauntletGithubCodeEntrypointDa
         .map(value => {
             const label = value.id === "default" ? data.codeFilePathPluginRelative : `${data.codeFilePathPluginRelative} - ${value.id}`
 
-
             return (
                 <TabItem key={value.id} value={value.id} label={label}>
                     <div className={styles.codeBlockOverlayContainer}>

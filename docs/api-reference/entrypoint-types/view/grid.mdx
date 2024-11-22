@@ -3,9 +3,215 @@ title: "Grid"
 sidebar_position: 3
 sidebar_label: "Grid"
 ---
+import UiScreenshot from '@site/src/components/UiScreenshot';
+
+import GridDescription from '@site/src/generated/tables/grid/description';
+import GridCode from '@site/src/generated/code_example/docs_grid/main';
+import GridProps from '@site/src/generated/tables/grid/props';
+import GridOrderedMembers from '@site/src/generated/tables/grid/ordered-members';
+import GridPerTypeMembers from '@site/src/generated/tables/grid/per-type-members';
+
+import GridItemDescription from '@site/src/generated/tables/grid_item/description';
+import GridItemCode from '@site/src/generated/code_example/docs_list/main'; // TODO example
+import GridItemProps from '@site/src/generated/tables/grid_item/props';
+
+import GridSectionDescription from '@site/src/generated/tables/grid_section/description';
+import GridSectionCode from '@site/src/generated/code_example/docs_list/section';
+import GridSectionProps from '@site/src/generated/tables/grid_section/props';
+import GridSectionOrderedMembers from '@site/src/generated/tables/grid_section/ordered-members';
+
+import SearchBarDescription from '@site/src/generated/tables/search_bar/description';
+import SearchBarCode from '@site/src/generated/code_example/docs_list/main'; // TODO example
+import SearchBarProps from '@site/src/generated/tables/search_bar/props';
+
+import EmptyViewDescription from '@site/src/generated/tables/empty_view/description';
+import EmptyViewCode from '@site/src/generated/code_example/docs_list/empty-view';
+import EmptyViewProps from '@site/src/generated/tables/empty_view/props';
+
+import ContentDescription from '@site/src/generated/tables/content/description';
+import ContentCode from '@site/src/generated/code_example/docs_list/main'; // TODO example
+import ContentOrderedMembers from '@site/src/generated/tables/content/ordered-members';
+
+import ParagraphDescription from '@site/src/generated/tables/paragraph/description';
+import ParagraphCode from '@site/src/generated/code_example/docs_list/main'; // TODO example
+import ParagraphOrderedMembers from '@site/src/generated/tables/paragraph/ordered-members';
+
+import ImageDescription from '@site/src/generated/tables/image/description';
+import ImageCode from '@site/src/generated/code_example/docs_list/main'; // TODO example
+import ImageProps from '@site/src/generated/tables/image/props';
+
+import HXCode from '@site/src/generated/code_example/docs_list/main'; // TODO example
+import HXMembers from '@site/src/generated/tables/h1/ordered-members';
+
+import HorizontalBreakDescription from '@site/src/generated/tables/horizontal_break/description';
+import HorizontalBreakCode from '@site/src/generated/code_example/docs_list/main'; // TODO example
+
+import CodeBlockDescription from '@site/src/generated/tables/code_block/description';
+import CodeBlockCode from '@site/src/generated/code_example/docs_list/main'; // TODO example
+import CodeBlockMembers from '@site/src/generated/tables/code_block/ordered-members';
+
 
 :::warning
 
 Work In Progress
 
 :::
+
+## Overview
+
+Grid is a view that is very similar to List view with the main difference that items are arranged into a grid
+
+<UiScreenshot imgPath="/img/screenshots/docs_grid/main/default.png"/>
+
+### Functionality
+- Items can have title, subtitle and icon accessory
+- Items can be grouped in sections with titles and subtitles
+- Can optionally have a search bar
+- If no items exist, text with image can be shown in the middle
+
+### Plugin Manifest
+
+To use this view, entrypoint with type `"view"` is required. For more details on entrypoint see ... TODO
+
+#### Example
+```toml
+[[entrypoint]]
+id = 'main'
+name = 'Main'
+path = 'src/main.tsx'
+type = 'view'
+description = ''
+```
+
+## API Reference
+
+### Grid
+<GridDescription/>
+
+#### Example
+<GridCode/>
+
+#### Props
+<GridProps/>
+
+#### Children components (order-sensitive)
+<GridOrderedMembers/>
+
+#### Children components (non-order-sensitive)
+<GridPerTypeMembers/>
+
+
+
+### Grid.Item
+<GridItemDescription/>
+
+#### Example
+TODO example
+<GridItemCode/>
+
+#### Props
+<GridItemProps/>
+
+
+
+### Grid.Item.Content
+<ContentDescription/>
+
+#### Example
+<ContentCode/>
+
+#### Children components (order-sensitive)
+<ContentOrderedMembers/>
+
+
+
+### Grid.Item.Content.Paragraph
+<ParagraphDescription/>
+
+#### Example
+<ParagraphCode/>
+
+#### Children components (order-sensitive)
+<ParagraphOrderedMembers/>
+
+
+
+### Grid.Item.Content.Image
+<ImageDescription/>
+
+#### Example
+<ImageCode/>
+
+#### Props
+<ImageProps/>
+
+
+
+### Grid.Item.Content.H1-6
+Headers
+
+#### Example
+<HXCode/>
+
+#### Children components (order-sensitive)
+<HXMembers/>
+
+
+
+### Grid.Item.Content.HorizontalBreak
+<HorizontalBreakDescription/>
+
+#### Example
+<HorizontalBreakCode/>
+
+
+
+### Grid.Item.Content.CodeBlock
+<CodeBlockDescription/>
+
+#### Example
+<CodeBlockCode/>
+
+#### Children components (order-sensitive)
+<CodeBlockMembers/>
+
+
+
+### Grid.Section
+<GridSectionDescription/>
+
+#### Example
+<GridSectionCode/>
+
+#### Props
+<GridSectionProps/>
+
+#### Children components (order-sensitive)
+<GridSectionOrderedMembers/>
+
+
+
+### Grid.SearchBar
+<SearchBarDescription/>
+
+TODO in depth description
+
+#### Example
+TODO example
+<SearchBarCode/>
+
+#### Props
+TODO descriptions
+<SearchBarProps/>
+
+
+
+### Grid.EmptyView
+<EmptyViewDescription/>
+
+#### Example
+<EmptyViewCode/>
+
+#### Props
+<EmptyViewProps/>
+
