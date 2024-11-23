@@ -91,7 +91,7 @@ export default {
         {
             types: ["parameter"],
             style: {
-                color: brown,
+                color: foreground,
             }
         },
         {

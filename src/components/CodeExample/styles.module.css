@@ -115,6 +115,13 @@
     }
 }
 
+
+.counterOffset70 {
+    [class^=codeBlockLines] {
+        counter-reset: line-count 70;
+    }
+}
+
 .counterOffset78 {
     [class^=codeBlockLines] {
         counter-reset: line-count 78;
