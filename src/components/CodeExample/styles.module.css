@@ -54,3 +54,21 @@
         counter-reset: line-count 34;
     }
 }
+
+.counterOffset43 {
+    [class^=codeBlockLines] {
+        counter-reset: line-count 43;
+    }
+}
+
+.counterOffset52 {
+    [class^=codeBlockLines] {
+        counter-reset: line-count 52;
+    }
+}
+
+.counterOffset61 {
+    [class^=codeBlockLines] {
+        counter-reset: line-count 61;
+    }
+}
