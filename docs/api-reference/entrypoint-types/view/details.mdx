@@ -3,10 +3,250 @@ title: "Detail"
 sidebar_position: 1
 sidebar_label: "Detail"
 ---
+import UiScreenshot from '@site/src/components/UiScreenshot';
 
-:::warning
+import DetailDescription from '@site/src/generated/tables/detail/description';
+import DetailCode from '@site/src/generated/code_example/docs_detail/main';
+import DetailProps from '@site/src/generated/tables/detail/props';
+import DetailPerTypeMembers from '@site/src/generated/tables/detail/per-type-members';
 
-Work In Progress
+import MetadataDescription from '@site/src/generated/tables/metadata/description';
+import MetadataCode from '@site/src/generated/code_example/docs_detail/metadata';
+import MetadataOrderedMembers from '@site/src/generated/tables/metadata/ordered-members';
 
-:::
+import MetadataTagListDescription from '@site/src/generated/tables/metadata_tag_list/description';
+import MetadataTagListCode from '@site/src/generated/code_example/docs_detail/metadata-tag-list';
+import MetadataTagListProps from '@site/src/generated/tables/metadata_tag_list/props';
+import MetadataTagListOrderedMembers from '@site/src/generated/tables/metadata_tag_list/ordered-members';
+
+import MetadataTagListItemDescription from '@site/src/generated/tables/metadata_tag_item/description';
+import MetadataTagListItemProps from '@site/src/generated/tables/metadata_tag_item/props';
+import MetadataTagListItemOrderedMembers from '@site/src/generated/tables/metadata_tag_item/ordered-members';
+
+import MetadataLinkDescription from '@site/src/generated/tables/metadata_link/description';
+import MetadataLinkCode from '@site/src/generated/code_example/docs_detail/metadata-link';
+import MetadataLinkProps from '@site/src/generated/tables/metadata_link/props';
+import MetadataLinkOrderedMembers from '@site/src/generated/tables/metadata_link/ordered-members';
+
+import MetadataValueDescription from '@site/src/generated/tables/metadata_value/description';
+import MetadataValueCode from '@site/src/generated/code_example/docs_detail/metadata-value'
+import MetadataValueProps from '@site/src/generated/tables/metadata_value/props';
+import MetadataValueOrderedMembers from '@site/src/generated/tables/metadata_value/ordered-members';
+
+import MetadataIconDescription from '@site/src/generated/tables/metadata_icon/description';
+import MetadataIconCode from '@site/src/generated/code_example/docs_detail/metadata-icon';
+import MetadataIconProps from '@site/src/generated/tables/metadata_icon/props';
+
+import MetadataSeparatorDescription from '@site/src/generated/tables/metadata_separator/description';
+import MetadataSeparatorCode from '@site/src/generated/code_example/docs_detail/metadata-separator';
+
+import ContentDescription from '@site/src/generated/tables/content/description';
+import ContentCode from '@site/src/generated/code_example/docs_detail/content';
+import ContentOrderedMembers from '@site/src/generated/tables/content/ordered-members';
+
+import ParagraphDescription from '@site/src/generated/tables/paragraph/description';
+import ParagraphCode from '@site/src/generated/code_example/docs_detail/content-paragraph';
+import ParagraphOrderedMembers from '@site/src/generated/tables/paragraph/ordered-members';
+
+import ImageDescription from '@site/src/generated/tables/image/description';
+import ImageCode from '@site/src/generated/code_example/docs_detail/content-image';
+import ImageProps from '@site/src/generated/tables/image/props';
+
+import HXCode from '@site/src/generated/code_example/docs_detail/content-header';
+import HXMembers from '@site/src/generated/tables/h1/ordered-members';
+
+import HorizontalBreakDescription from '@site/src/generated/tables/horizontal_break/description';
+import HorizontalBreakCode from '@site/src/generated/code_example/docs_detail/content-horizontal-break';
+
+import CodeBlockDescription from '@site/src/generated/tables/code_block/description';
+import CodeBlockCode from '@site/src/generated/code_example/docs_detail/content-code-block';
+import CodeBlockMembers from '@site/src/generated/tables/code_block/ordered-members';
+
+
+## Overview
+
+Detail is a view which can display everything that could go into an article: text, images, code block etc.
+It can appear as a standalone view or as a part of List view on the right-hand side
+
+<UiScreenshot imgPath="/img/screenshots/docs_detail/main/default.png"/>
+
+### Functionality
+- Can have some structured data on the right-hand side
+- As with all other views can be made highly dynamic with help of React
+
+### Plugin Manifest
+
+To use this view, entrypoint with type `"view"` is required. For more details on entrypoint see ... TODO
+
+#### Example
+```toml
+[[entrypoint]]
+id = 'main'
+name = 'Main'
+path = 'src/main.tsx'
+type = 'view'
+description = 'Description of a Detail view'
+```
+
+## API Reference
+
+### Detail
+<DetailDescription/>
+
+#### Example
+<DetailCode/>
+
+#### Props
+<DetailProps/>
+
+#### Children components (non-order-sensitive)
+<DetailPerTypeMembers/>
+
+
+
+### Detail.Metadata
+<MetadataDescription/>
+
+#### Example
+<MetadataCode/>
+
+#### Children components (order-sensitive)
+<MetadataOrderedMembers/>
+
+
+
+### Detail.Metadata.TagList
+<MetadataTagListDescription/>
+
+#### Example
+<MetadataTagListCode/>
+
+#### Props
+<MetadataTagListProps/>
+
+#### Children components (order-sensitive)
+<MetadataTagListOrderedMembers/>
+
+
+
+### Detail.Metadata.TagList.Item
+<MetadataTagListItemDescription/>
+
+#### Props
+<MetadataTagListItemProps/>
+
+#### Children components (order-sensitive)
+<MetadataTagListItemOrderedMembers/>
+
+
+
+### Detail.Metadata.Link
+<MetadataLinkDescription/>
+
+#### Example
+<MetadataLinkCode/>
+
+#### Props
+<MetadataLinkProps/>
+
+#### Children components (order-sensitive)
+<MetadataLinkOrderedMembers/>
+
+
+
+### Detail.Metadata.Value
+<MetadataValueDescription/>
+
+#### Example
+<MetadataValueCode/>
+
+#### Props
+<MetadataValueProps/>
+
+#### Children components (order-sensitive)
+<MetadataValueOrderedMembers/>
+
+
+
+### Detail.Metadata.Icon
+<MetadataIconDescription/>
+
+#### Example
+<MetadataIconCode/>
+
+#### Props
+<MetadataIconProps/>
+
+
+
+### Detail.Metadata.Separator
+<MetadataSeparatorDescription/>
+
+#### Example
+<MetadataSeparatorCode/>
+
+
+
+### Detail.Content
+<ContentDescription/>
+
+#### Example
+<ContentCode/>
+
+#### Children components (order-sensitive)
+<ContentOrderedMembers/>
+
+
+
+### Detail.Content.Paragraph
+<ParagraphDescription/>
+
+#### Example
+<ParagraphCode/>
+
+#### Children components (order-sensitive)
+<ParagraphOrderedMembers/>
+
+
+### Detail.Content.Image
+<ImageDescription/>
+
+#### Example
+<ImageCode/>
+
+#### Props
+<ImageProps/>
+
+
+
+### Detail.Content.H1-6
+Headers
+
+#### Example
+<HXCode/>
+
+#### Children components (order-sensitive)
+<HXMembers/>
+
+
+
+### Detail.Content.HorizontalBreak
+<HorizontalBreakDescription/>
+
+#### Example
+<HorizontalBreakCode/>
+
+
+
+### Detail.Content.CodeBlock
+<CodeBlockDescription/>
+
+#### Example
+<CodeBlockCode/>
+
+#### Children components (order-sensitive)
+<CodeBlockMembers/>
+
+
+
 

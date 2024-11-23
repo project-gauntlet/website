@@ -12,7 +12,6 @@ import GridOrderedMembers from '@site/src/generated/tables/grid/ordered-members'
 import GridPerTypeMembers from '@site/src/generated/tables/grid/per-type-members';
 
 import GridItemDescription from '@site/src/generated/tables/grid_item/description';
-import GridItemCode from '@site/src/generated/code_example/docs_list/main'; // TODO example
 import GridItemProps from '@site/src/generated/tables/grid_item/props';
 
 import GridSectionDescription from '@site/src/generated/tables/grid_section/description';
@@ -51,12 +50,6 @@ import CodeBlockCode from '@site/src/generated/code_example/docs_list/main'; // 
 import CodeBlockMembers from '@site/src/generated/tables/code_block/ordered-members';
 
 
-:::warning
-
-Work In Progress
-
-:::
-
 ## Overview
 
 Grid is a view that is very similar to List view with the main difference that items are arranged into a grid allowing for items to be an image
@@ -68,6 +61,7 @@ Grid is a view that is very similar to List view with the main difference that i
 - Items can be grouped in sections with titles and subtitles
 - Can optionally have a search bar
 - If no items exist, text with image can be shown in the middle
+- As with all other views can be made highly dynamic with help of React
 
 ### Plugin Manifest
 
@@ -104,10 +98,6 @@ description = 'Description of a Grid view'
 
 ### Grid.Item
 <GridItemDescription/>
-
-#### Example
-TODO example
-<GridItemCode/>
 
 #### Props
 <GridItemProps/>

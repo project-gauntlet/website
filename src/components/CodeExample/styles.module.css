@@ -37,9 +37,21 @@
     }
 }
 
+.counterOffset15 {
+    [class^=codeBlockLines] {
+        counter-reset: line-count 15;
+    }
+}
+
 .counterOffset16 {
     [class^=codeBlockLines] {
         counter-reset: line-count 16;
+    }
+}
+
+.counterOffset24 {
+    [class^=codeBlockLines] {
+        counter-reset: line-count 24;
     }
 }
 
@@ -49,9 +61,21 @@
     }
 }
 
+.counterOffset33 {
+    [class^=codeBlockLines] {
+        counter-reset: line-count 33;
+    }
+}
+
 .counterOffset34 {
     [class^=codeBlockLines] {
         counter-reset: line-count 34;
+    }
+}
+
+.counterOffset42 {
+    [class^=codeBlockLines] {
+        counter-reset: line-count 42;
     }
 }
 
@@ -61,14 +85,63 @@
     }
 }
 
+.counterOffset51 {
+    [class^=codeBlockLines] {
+        counter-reset: line-count 51;
+    }
+}
+
 .counterOffset52 {
     [class^=codeBlockLines] {
         counter-reset: line-count 52;
     }
 }
 
+.counterOffset60 {
+    [class^=codeBlockLines] {
+        counter-reset: line-count 60;
+    }
+}
+
 .counterOffset61 {
     [class^=codeBlockLines] {
         counter-reset: line-count 61;
+    }
+}
+
+.counterOffset69 {
+    [class^=codeBlockLines] {
+        counter-reset: line-count 69;
+    }
+}
+
+.counterOffset78 {
+    [class^=codeBlockLines] {
+        counter-reset: line-count 78;
+    }
+}
+
+
+.counterOffset87 {
+    [class^=codeBlockLines] {
+        counter-reset: line-count 87;
+    }
+}
+
+.counterOffset96 {
+    [class^=codeBlockLines] {
+        counter-reset: line-count 96;
+    }
+}
+
+.counterOffset105 {
+    [class^=codeBlockLines] {
+        counter-reset: line-count 105;
+    }
+}
+
+.counterOffset114 {
+    [class^=codeBlockLines] {
+        counter-reset: line-count 114;
     }
 }
