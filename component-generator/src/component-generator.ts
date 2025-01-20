@@ -1,7 +1,7 @@
 import { EOL } from "node:os";
 import { readdir } from "node:fs/promises";
 import path from "node:path";
-import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { parse as parseToml } from "toml";
 import * as process from "node:process";
 import dedent from "dedent";
@@ -73,9 +73,8 @@ function findCodeSegments(fileContent: string): {
         }, [])
 }
 
-async function readCodeExampleData() {
-    const appDocsPath = path.resolve(process.cwd(), '..', 'application')
-    const scenariosDocsPath = path.resolve(appDocsPath, 'scenarios')
+async function readCodeExampleData(gauntletRepoPath: string) {
+    const scenariosDocsPath = path.resolve(gauntletRepoPath, 'example_plugins')
     const pluginsDocsPath = path.resolve(scenariosDocsPath, 'plugins')
 
     return (await readdir(pluginsDocsPath, { withFileTypes: true }))
@@ -84,7 +83,7 @@ async function readCodeExampleData() {
         .map(pluginId => {
             const pluginDirPath = path.resolve(pluginsDocsPath, pluginId)
             const manifestFilePath = path.resolve(pluginDirPath, 'gauntlet.toml')
-            const manifestFileRootRelativePath = path.relative(appDocsPath, manifestFilePath)
+            const manifestFileRootRelativePath = path.relative(gauntletRepoPath, manifestFilePath)
             const manifestFileRootPluginRelative = path.relative(pluginDirPath, manifestFilePath)
 
             const manifestFileContent = readFileSync(manifestFilePath, "utf8");
@@ -120,7 +119,7 @@ async function readCodeExampleData() {
                     let entrypointId = entrypoint.id;
                     let entrypointPath = entrypoint.path;
                     const codeFilePath = path.resolve(pluginDirPath, entrypointPath)
-                    const codeFileRootRootRelativePath = path.relative(appDocsPath, codeFilePath)
+                    const codeFileRootRootRelativePath = path.relative(gauntletRepoPath, codeFilePath)
                     const codeFileRootPluginRelativePath = path.relative(pluginDirPath, codeFilePath)
 
                     const codeFileContent = readFileSync(codeFilePath, "utf8");
@@ -130,7 +129,7 @@ async function readCodeExampleData() {
                     if (codeSegments.length == 0) {
                         const id = "default";
 
-                        const screenshotFilePath = path.resolve('/img', 'screenshots', pluginId, entrypointId, `${id}.png`)
+                        const screenshotFilePath = path.resolve('/img', 'generated-screenshots', pluginId, entrypointId, `${id}.png`)
 
                         codeSegmentsResult.push({
                             id: id,
@@ -145,7 +144,7 @@ async function readCodeExampleData() {
 
                         const id = "default";
 
-                        const screenshotFilePath = path.resolve('/img', 'screenshots', pluginId, entrypointId, `${id}.png`)
+                        const screenshotFilePath = path.resolve('/img', 'generated-screenshots', pluginId, entrypointId, `${id}.png`)
 
                         codeSegmentsResult.push({
                             id,
@@ -160,7 +159,7 @@ async function readCodeExampleData() {
                                     throw new Error(`code file segment doesn't have id: ${codeFilePath}`)
                                 }
 
-                                const screenshotFilePath = path.resolve('/img', 'screenshots', pluginId, entrypointId, `${codeSegment.id}.png`)
+                                const screenshotFilePath = path.resolve('/img', 'generated-screenshots', pluginId, entrypointId, `${codeSegment.id}.png`)
 
                                 return {
                                     id: codeSegment.id,
@@ -221,8 +220,8 @@ async function generateCodeExample(generatedPath: string, data: GauntletGithubCo
     }
 }
 
-function readComponentModel(): any {
-    const componentModelPath = path.resolve(process.cwd(), 'component_model.json')
+function readComponentModel(gauntletRepoPath: string): any {
+    const componentModelPath = path.resolve(gauntletRepoPath, 'js', 'api_build', 'component_model.json')
 
     return JSON.parse(readFileSync(componentModelPath, { encoding: "utf-8" }))
 }
@@ -362,12 +361,21 @@ export default function Default(): JSX.Element {
 }
 
 async function run() {
-    const generatedPath = path.resolve(process.cwd(), '..', 'src', 'generated')
+    // outside the repo
+    const gauntletRepoPath = path.resolve(process.cwd(), '..', '..', 'gauntlet')
+
+    const repoRootPath = path.resolve(process.cwd(), '..')
+    const generatedPath = path.resolve(repoRootPath, 'src', 'generated')
     rmSync(generatedPath, { recursive: true, force: true })
 
-    await generateCodeExample(generatedPath, await readCodeExampleData())
+    const screenshots = path.resolve(gauntletRepoPath, 'example_plugins', 'out-screenshot')
+    const generatedScreenshotsPath = path.resolve(repoRootPath, 'static', 'img', 'generated-screenshots')
+    rmSync(generatedScreenshotsPath, { recursive: true, force: true })
+    cpSync(screenshots, generatedScreenshotsPath, { recursive: true })
 
-    await generatePropertyTables(generatedPath, readComponentModel())
+    await generateCodeExample(generatedPath, await readCodeExampleData(gauntletRepoPath))
+
+    await generatePropertyTables(generatedPath, readComponentModel(gauntletRepoPath))
 }
 
 await run()
