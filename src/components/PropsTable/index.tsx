@@ -23,7 +23,9 @@ export default function Default({ data }: { data: Data }): ReactNode {
                     <tr key={property.name}>
                         <td>{property.name}</td>
                         <td>{property.optional ? "Optional" : "Required"}</td>
-                        <td>{renderPropertyType(property.type)}</td>
+                        <td>
+                            <span style={{ "whiteSpace": "nowrap" }}>{renderPropertyType(property.type)}</span>
+                        </td>
                         <td>{property.description}</td>
                     </tr>
                 );

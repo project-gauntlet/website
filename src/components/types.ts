@@ -131,7 +131,7 @@ export function renderPropertyType(propertyType: PropertyType): ReactNode {
             return "boolean"
         }
         case "component": {
-            return `${propertyType.reference.componentName}` // TODO link
+            return `<${propertyType.reference.componentName}/>` // TODO link
         }
         case "function": {
             const args = propertyType

@@ -25,7 +25,9 @@ export default function Default({ data }: { data: Data }): JSX.Element {
                     return ( // TODO Link to section
                         <tr key={name}>
                             <td>{name}</td>
-                            <td>{componentRef.componentName}</td>
+                            <td>
+                                <span style={{ "whiteSpace": "nowrap" }}>&lt;{componentRef.componentName}/&gt;</span>
+                            </td>
                             <td>{renderArity(componentRef.arity)}</td>
                         </tr>
                     );
