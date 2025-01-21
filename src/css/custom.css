@@ -8,6 +8,7 @@
 /* node_modules/infima/dist/css/default/default.css */
 :root {
   --ifm-code-font-size: 95%;
+  --ifm-font-size-base: 95%;
 
   --ifm-background-color: rgb(250, 250, 250);
 
