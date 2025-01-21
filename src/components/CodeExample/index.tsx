@@ -44,7 +44,6 @@ export default function Default({ data }: { data: GauntletGithubCodeEntrypointDa
                         <CodeBlock
                             language="jsx"
                             showLineNumbers
-                            className={value.lines ? lineNumberStyle(value.lines) : undefined}
                         >
                             {value.value}
                         </CodeBlock>
@@ -61,11 +60,7 @@ export default function Default({ data }: { data: GauntletGithubCodeEntrypointDa
         elements.push(
             <TabItem key="manifest" value="manifest" label="gauntlet.toml">
             <div className={styles.codeBlockOverlayContainer}>
-                <CodeBlock
-                    language="toml"
-                    showLineNumbers
-                    className={lineNumberStyle(data.manifestSegment.manifestFileLines)}
-                >
+                <CodeBlock language="toml">
                     {data.manifestSegment.value}
                 </CodeBlock>
                 <Link className={styles.codeBlockOverlayGithubIcon} to={githubLink(data.manifestFilePathRootRelative, data.manifestSegment.manifestFileLines)}>
@@ -80,17 +75,4 @@ export default function Default({ data }: { data: GauntletGithubCodeEntrypointDa
             {elements}
         </Tabs>
     );
-}
-
-// work around for inability to set starting line number
-function lineNumberStyle(lines: [number, number]): string {
-    const [startLine, _endLine] = lines
-
-    const style = styles[`counterOffset${startLine}`];
-
-    if (typeof style !== "string") {
-        throw new Error(`counter offset ${startLine} not found`)
-    }
-
-    return style
 }
