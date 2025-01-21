@@ -368,7 +368,7 @@ async function run() {
     const generatedPath = path.resolve(repoRootPath, 'src', 'generated')
     rmSync(generatedPath, { recursive: true, force: true })
 
-    const screenshots = path.resolve(gauntletRepoPath, 'example_plugins', 'out-screenshot')
+    const screenshots = path.resolve(gauntletRepoPath, 'example_plugins', 'out_screenshot')
     const generatedScreenshotsPath = path.resolve(repoRootPath, 'static', 'img', 'generated-screenshots')
     rmSync(generatedScreenshotsPath, { recursive: true, force: true })
     cpSync(screenshots, generatedScreenshotsPath, { recursive: true })
