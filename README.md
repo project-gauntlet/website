@@ -5,8 +5,8 @@ This website is built using [Docusaurus](https://docusaurus.io/), a modern stati
 ### Installation
 
 ```bash
-git submodule update --init
 yarn
+yarn run run-generator ../gauntlet # path to main gauntlet repo
 ```
 
 ### Local Development

@@ -360,9 +360,15 @@ export default function Default(): JSX.Element {
     writeFileSync(filePath, `${pre}${serializedData}${post}\n`)
 }
 
-async function run() {
-    // outside the repo
-    const gauntletRepoPath = path.resolve(process.cwd(), '..', '..', 'gauntlet')
+async function run(args: string[]) {
+    const argPathToMainRepo = args[0];
+    const gauntletRepoPath = path.resolve(process.cwd(), '..', argPathToMainRepo)
+
+    // validate
+    const packageJson = JSON.parse(readFileSync(path.resolve(gauntletRepoPath, 'package.json'), { encoding: "utf-8" }));
+    if (packageJson.name != "project-gauntlet") {
+        throw new Error("unexpected project")
+    }
 
     const repoRootPath = path.resolve(process.cwd(), '..')
     const generatedPath = path.resolve(repoRootPath, 'src', 'generated')
@@ -378,4 +384,4 @@ async function run() {
     await generatePropertyTables(generatedPath, readComponentModel(gauntletRepoPath))
 }
 
-await run()
+await run(process.argv.slice(2))

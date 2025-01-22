@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "run": "tsx src/component-generator.ts"
+    "run-generator": "tsx src/component-generator.ts"
   },
   "dependencies": {
     "dedent": "^1.5.3",
