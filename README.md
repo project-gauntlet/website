@@ -4,6 +4,13 @@ This website is built using [Docusaurus](https://docusaurus.io/), a modern stati
 
 ### Installation
 
+In main repo
+```bash
+npm run run-scenarios
+npm run run-screenshot-gen
+```
+
+In this repo
 ```bash
 yarn
 yarn run run-generator ../gauntlet # path to main gauntlet repo
