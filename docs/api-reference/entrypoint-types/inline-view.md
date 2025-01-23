@@ -10,4 +10,4 @@ Work In Progress
 
 :::
 
-[//]: # (notes: although it can be made highly dynamic with React, more static content should be prefered)
+TODO although it can be made dynamic with React, more static content should be preferred

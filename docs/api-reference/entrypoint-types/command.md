@@ -9,3 +9,5 @@ sidebar_label: "Command"
 Work In Progress
 
 :::
+
+TODO note about using async

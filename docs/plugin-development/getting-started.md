@@ -9,3 +9,6 @@ sidebar_label: "Getting Started"
 Work In Progress
 
 :::
+
+
+ This documentation will assume some basic knowledge of React

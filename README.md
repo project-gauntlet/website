@@ -6,6 +6,7 @@ This website is built using [Docusaurus](https://docusaurus.io/), a modern stati
 
 In main repo
 ```bash
+npm run run-component-model-gen
 npm run run-scenarios
 npm run run-screenshot-gen
 ```
