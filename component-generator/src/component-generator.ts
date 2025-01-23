@@ -350,9 +350,9 @@ const data = JSON.parse(Buffer.from(\`
 
     const post = `
 \`, 'base64').toString('utf-8'));
-export default function Default(): JSX.Element {
+export default function Default({ screenshot }: { screenshot?: boolean }): JSX.Element {
     return (
-        <${name} data={data}/>
+        <${name} data={data} screenshot={screenshot}/>
     );
 }
 `

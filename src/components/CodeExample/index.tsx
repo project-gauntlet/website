@@ -24,7 +24,7 @@ interface GauntletGithubCodeEntrypointData {
     }
 }
 
-export default function Default({ data }: { data: GauntletGithubCodeEntrypointData }): JSX.Element {
+export default function Default({ data, screenshot }: { data: GauntletGithubCodeEntrypointData, screenshot?: boolean }): JSX.Element {
     function githubLink(rootRelativePath: string, lines?: [number, number]): string {
         if (lines) {
             const [startLine, endLine] = lines
@@ -52,18 +52,19 @@ export default function Default({ data }: { data: GauntletGithubCodeEntrypointDa
                             <Icon icon="mdi:github" height="1.25em"/>
                         </Link>
                     </div>
-                    <UiScreenshot imgPath={value.screenshotFilePath}/>
+                    {(screenshot ?? true) && <UiScreenshot imgPath={value.screenshotFilePath}/>}
                 </TabItem>
             )
         });
 
-        elements.push(
-            <TabItem key="manifest" value="manifest" label="gauntlet.toml">
+    elements.push(
+        <TabItem key="manifest" value="manifest" label="gauntlet.toml">
             <div className={styles.codeBlockOverlayContainer}>
                 <CodeBlock language="toml">
                     {data.manifestSegment.value}
                 </CodeBlock>
-                <Link className={styles.codeBlockOverlayGithubIcon} to={githubLink(data.manifestFilePathRootRelative, data.manifestSegment.manifestFileLines)}>
+                <Link className={styles.codeBlockOverlayGithubIcon}
+                      to={githubLink(data.manifestFilePathRootRelative, data.manifestSegment.manifestFileLines)}>
                     <Icon icon="mdi:github" height="1.25em"/>
                 </Link>
             </div>
