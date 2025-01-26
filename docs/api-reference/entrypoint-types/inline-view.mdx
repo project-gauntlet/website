@@ -1,0 +1,38 @@
+---
+title: "Inline View"
+sidebar_position: 2
+sidebar_label: "Inline View"
+---
+
+## Overview
+
+Inline is a view that is displayed directly under search bar in main window.
+Content of view as well as whether the view is displayed at all will depend on the text typed in search bar
+
+Plugin can declare only one Inline view
+
+TODO screenshot
+
+### Functionality
+- TODO
+
+### TODO
+TODO although it can be made dynamic with React, more static content should be preferred
+
+### Plugin Manifest
+
+To use this view, entrypoint with type `"inline-view"` is required
+
+TODO permission
+
+#### Example
+```toml
+[[entrypoint]]
+id = 'main'
+name = 'Main'
+path = 'src/main.tsx'
+type = 'inline-view'
+description = 'Description of a inline view'
+```
+
+## API Reference

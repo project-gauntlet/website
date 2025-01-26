@@ -4,8 +4,58 @@ sidebar_position: 5
 sidebar_label: "Preferences"
 ---
 
-:::warning
+## Overview
 
-Work In Progress
+Preferences are a way for plugins to be configured. Value of preference can be changed in Settings UI.
+
+There are 2 types of preferences: plugin (scoped to whole plugin) and entrypoint (specific to given entrypoint).
+
+Preferences are defined in manifest.
+Preference can be defined with default value, if default value is not provided preference is considered to be required
+and user will be prompted before running the command or opening view to set preference value.
+
+Currently supported types of values:
+- number
+- string
+- bool
+- enum (string, but only predefined list of values is allowed)
+- list of strings
+- list of numbers
+- list of enums
+
+:::note
+
+Currently, lists do not support specifying default value, and it will always be an empty list
 
 :::
+
+## Preferences In View
+
+### Example
+
+TODO both plugin and entrypoint
+
+### Api Reference
+
+TODO types
+
+## Preferences In Command
+
+### Example
+
+TODO both plugin and entrypoint
+
+### Api Reference
+
+TODO types
+
+## Preferences In Entrypoint Generator
+
+### Example
+
+TODO both plugin and entrypoint
+
+### Api Reference
+
+TODO types
+

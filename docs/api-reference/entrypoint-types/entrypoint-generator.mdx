@@ -1,0 +1,63 @@
+---
+title: "Entrypoint Generator"
+sidebar_position: 4
+sidebar_label: "Entrypoint Generator"
+---
+
+## Overview
+
+Entrypoint generator is used for procedural generation of entrypoints.
+
+### Functionality
+- Dynamically add, remove, update one or more entrypoints at any point in plugin lifetime
+- Generated entrypoints can have accessories
+- Generated entrypoints can have multiple actions, each of which can be a command or a view 
+
+For performance reasons, the entrypoints are generated once and stored for later use instead of being generated each time when main window is opened.
+This means that after initial generator run the only way to add, delete or remove generated entrypoint is based on some external event e.g. file change
+
+### Plugin Manifest
+
+To use entrypoint generator, entrypoint with type `"entrypoint-generator"` is required
+
+#### Example
+```toml
+[[entrypoint]]
+id = 'main'
+name = 'Main'
+path = 'src/main.tsx'
+type = 'entrypoint-generator'
+description = 'Description of a entrypoint generator'
+```
+
+## Note on usage of `async`
+
+JavaScript is a single-threaded language, at any time only one chunk of code is being executed.
+
+This has implications on Gauntlet plugins.
+
+Let's say you have 2 entry points: view and entrypoint generator, let's also say that your generator entrypoint needs to scan some directories.
+If you are using synchronous versions of functions to access file system, user will not be able to open any views
+because JS runtime is being busy with scanning directories. For this reason prefer using async versions of APIs where possible,
+or if your code is computationally intensive, offload the computation to a worker
+
+## Examples
+
+### Simple
+TODO not dynamic
+
+### Update based on file system events
+
+### Accessories
+
+### Icons
+
+### View actions
+
+### Preferences
+
+### Actions
+
+### Action shortcuts
+
+TODO shortcut works when item is focused
