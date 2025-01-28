@@ -21,3 +21,6 @@ TODO
 ## Byte array
 
 TODO 
+
+
+## API Reference

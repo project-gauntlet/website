@@ -215,7 +215,7 @@ async function generateCodeExample(generatedPath: string, data: GauntletGithubCo
 
             const jsxPath = path.resolve(generatedPathCodeExample, plugin.pluginId, `${entrypoint.entrypointId}.tsx`)
 
-            createJsxWithDataInput("CodeExample", jsxPath, entrypoint.data)
+            createJsxWithDataInput("CodeExample", jsxPath, entrypoint.data, true)
         }
     }
 }
@@ -250,7 +250,8 @@ async function generatePropertyTables(generatedPath: string, components: any) {
                     path.resolve(generatedTablesComponentPath, `description.tsx`),
                     {
                         description: component.description,
-                    }
+                    },
+                    false
                 )
 
                 if (component.props.length !== 0) {
@@ -260,7 +261,8 @@ async function generatePropertyTables(generatedPath: string, components: any) {
                         {
                             internalName: component.internalName,
                             props: component.props
-                        }
+                        },
+                        false
                     )
                 }
 
@@ -276,7 +278,8 @@ async function generatePropertyTables(generatedPath: string, components: any) {
                                 tableKey: component.internalName,
                                 members: {},
                                 withString: true
-                            }
+                            },
+                            false
                         )
 
                         break;
@@ -291,7 +294,8 @@ async function generatePropertyTables(generatedPath: string, components: any) {
                                     tableKey: component.internalName,
                                     members: component.children.ordered_members,
                                     withString: false
-                                }
+                                },
+                                false
                             )
                         }
 
@@ -302,7 +306,8 @@ async function generatePropertyTables(generatedPath: string, components: any) {
                                 {
                                     tableKey: component.internalName,
                                     members: component.children.per_type_members,
-                                }
+                                },
+                                false
                             )
                         }
 
@@ -316,7 +321,8 @@ async function generatePropertyTables(generatedPath: string, components: any) {
                                 tableKey: component.internalName,
                                 members: component.children.ordered_members,
                                 withString: true
-                            }
+                            },
+                            false
                         )
 
                         if (Object.entries(component.children.per_type_members).length !== 0) {
@@ -326,7 +332,8 @@ async function generatePropertyTables(generatedPath: string, components: any) {
                                 {
                                     tableKey: component.internalName,
                                     members: component.children.per_type_members,
-                                }
+                                },
+                                false
                             )
                         }
 
@@ -338,7 +345,7 @@ async function generatePropertyTables(generatedPath: string, components: any) {
     }
 }
 
-function createJsxWithDataInput(name: string, filePath: string, data: object) {
+function createJsxWithDataInput(name: string, filePath: string, data: object, screenshotFlag: boolean) {
     const pre = `
 import ${name} from '@site/src/components/${name}';
 import React from "react";
@@ -350,9 +357,9 @@ const data = JSON.parse(Buffer.from(\`
 
     const post = `
 \`, 'base64').toString('utf-8'));
-export default function Default({ screenshot }: { screenshot?: boolean }): JSX.Element {
+export default function Default(${screenshotFlag ? "{ screenshot }: { screenshot?: boolean }" : ""}): JSX.Element {
     return (
-        <${name} data={data} screenshot={screenshot}/>
+        <${name} data={data} ${screenshotFlag ? "screenshot={screenshot}" : ""}/>
     );
 }
 `

@@ -3,27 +3,59 @@ title: "Inline View"
 sidebar_position: 2
 sidebar_label: "Inline View"
 ---
+import UiScreenshot from '@site/src/components/UiScreenshot';
+
+import InlineDescription from '@site/src/generated/tables/inline/description';
+import InlineProps from '@site/src/generated/tables/inline/props';
+import InlineOrderedMembers from '@site/src/generated/tables/inline/ordered-members';
+
+import InlineSeparatorDescription from '@site/src/generated/tables/inline/description';
+
+import ContentDescription from '@site/src/generated/tables/content/description';
+import ContentOrderedMembers from '@site/src/generated/tables/content/ordered-members';
+
+import ParagraphDescription from '@site/src/generated/tables/paragraph/description';
+import ParagraphOrderedMembers from '@site/src/generated/tables/paragraph/ordered-members';
+
+import ImageDescription from '@site/src/generated/tables/image/description';
+import ImageProps from '@site/src/generated/tables/image/props';
+
+import HXMembers from '@site/src/generated/tables/h1/ordered-members';
+
+import HorizontalBreakDescription from '@site/src/generated/tables/horizontal_break/description';
+
+import CodeBlockDescription from '@site/src/generated/tables/code_block/description';
+import CodeBlockMembers from '@site/src/generated/tables/code_block/ordered-members';
+
+
+import InlineCode from '@site/src/generated/code_example/ui_inline_main/main';
+import InlineSeparatorsCode from '@site/src/generated/code_example/ui_inline_separator/main';
+import InlineTwoSectionsCode from '@site/src/generated/code_example/ui_inline_two_sections/main';
+import InlineThreeSectionsCode from '@site/src/generated/code_example/ui_inline_three_sections/main';
+import InlineHXCode from '@site/src/generated/code_example/ui_inline_header/main';
+import InlineCodeBlockCode from '@site/src/generated/code_example/ui_inline_code_block/main';
+import InlineParagraphCode from '@site/src/generated/code_example/ui_inline_paragraph/main';
+import InlineImageCode from '@site/src/generated/code_example/ui_inline_image/main';
+import InlineHorizontalBreakCode from '@site/src/generated/code_example/ui_inline_horizontal_break/main';
 
 ## Overview
 
 Inline is a view that is displayed directly under search bar in main window.
 Content of view as well as whether the view is displayed at all will depend on the text typed in search bar
 
-Plugin can declare only one Inline view
+Plugin can declare only one Inline view.
 
-TODO screenshot
+Although it can be made dynamic with React, static content should be preferred
+
+<UiScreenshot imgPath="/img/generated-screenshots/ui_inline_main/main/default.png"/>
 
 ### Functionality
-- TODO
-
-### TODO
-TODO although it can be made dynamic with React, more static content should be preferred
+- Show content right under search bar in main window based on content of search bar
+- While inline view is displayed separate set of actions defined in the view is available
 
 ### Plugin Manifest
 
-To use this view, entrypoint with type `"inline-view"` is required
-
-TODO permission
+To use this view, entrypoint with type `"inline-view"` and `main_search_bar` `read` permission are required
 
 #### Example
 ```toml
@@ -33,6 +65,96 @@ name = 'Main'
 path = 'src/main.tsx'
 type = 'inline-view'
 description = 'Description of a inline view'
+
+[permissions]
+main_search_bar = ["read"]
 ```
 
 ## API Reference
+
+
+### Inline
+<InlineDescription/>
+
+#### Example
+<InlineCode/>
+
+#### Props
+<InlineProps/>
+
+#### Children components (order-sensitive)
+<InlineOrderedMembers/>
+
+
+
+### Inline Content
+<ContentDescription/>
+
+#### Example Two Columns
+<InlineTwoSectionsCode/>
+
+#### Example Three Columns
+<InlineThreeSectionsCode/>
+
+#### Children components (order-sensitive)
+<ContentOrderedMembers/>
+
+
+
+### Inline.Center.Paragraph
+<ParagraphDescription/>
+
+#### Example
+<InlineParagraphCode/>
+
+#### Children components (order-sensitive)
+<ParagraphOrderedMembers/>
+
+
+### Inline.Center.Image
+<ImageDescription/>
+
+#### Example
+<InlineImageCode/>
+
+#### Props
+<ImageProps/>
+
+
+
+### Inline.Center.H1-6
+Headers
+
+#### Example
+<InlineHXCode/>
+
+#### Children components (order-sensitive)
+<HXMembers/>
+
+
+
+### Inline.Center.HorizontalBreak
+<HorizontalBreakDescription/>
+
+#### Example
+<InlineHorizontalBreakCode/>
+
+
+
+### Inline.Center.CodeBlock
+<CodeBlockDescription/>
+
+#### Example
+<InlineCodeBlockCode/>
+
+#### Children components (order-sensitive)
+<CodeBlockMembers/>
+
+
+
+
+### Inline.Separator
+<InlineSeparatorDescription/>
+
+#### Example
+<InlineSeparatorsCode/>

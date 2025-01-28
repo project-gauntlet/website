@@ -22,6 +22,6 @@ TODO use image url in grid item
 
 TODO use asset image in grid item
 
-## API Reference Types
+## API Reference
 
 TODO list of icons
