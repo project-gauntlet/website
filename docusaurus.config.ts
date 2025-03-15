@@ -77,11 +77,11 @@ const config: Config = {
             style: 'dark',
             links: [
                 {
-                    title: 'Docs',
+                    title: 'Website',
                     items: [
                         {
-                            label: 'Tutorial',
-                            to: '/docs/intro',
+                            label: 'Docs',
+                            to: '/docs/introduction',
                         },
                     ],
                 },
