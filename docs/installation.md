@@ -4,6 +4,17 @@ sidebar_position: 2
 sidebar_label: "Installation"
 ---
 
+## OS Support
+
+### Official
+- Linux X11 x86_64
+- macOS M1 
+
+### Best-effort
+- Linux Wayland x86_64
+- Windows x86_64
+- macOS x86_64
+
 ## macOS
 
 Although it is possible to install Gauntlet by using `.dmg` directly, application doesn't have auto-update functionality so it is recommended to install using `brew` package manager
@@ -13,19 +24,6 @@ Brew package: [link](https://formulae.brew.sh/cask/gauntlet)
 To install run:
 ```
 brew install --cask gauntlet
-```
-
-To start, manually open application.
-
-## Windows
-
-Although it is possible to install Gauntlet by using `.msi` directly, application doesn't have auto-update functionality so it is recommended to install using `chocolatey` package manager
-
-Chocolatey package: [link](https://community.chocolatey.org/packages/gauntlet)
-
-To install run:
-```
-choco install gauntlet
 ```
 
 To start, manually open application.
@@ -50,7 +48,15 @@ See installation instructions [here](https://github.com/project-gauntlet/gauntle
 
 ## Other Linux Distributions
 
-At the moment application is available only for Arch Linux and Nix. If you want to create a package for other distributions see [Application packaging for Linux](#application-packaging-for-Linux)
+At the moment application is available only for Arch Linux and Nix. If you want to create a package for other distributions see [Application packaging for Linux](#application-packaging-for-linux)
+
+## Windows
+
+Download `.msi` at [Releases page](https://github.com/project-gauntlet/gauntlet/releases/latest) and open to install Gauntlet
+
+Note: application doesn't have auto-update functionality, and has to be updated manually
+
+To start, manually open application.
 
 ### Application packaging for Linux
 
@@ -71,6 +77,8 @@ Relevant CLI commands:
 `.desktop` sample file can be found [here](https://github.com/project-gauntlet/gauntlet/blob/main/assets/linux/gauntlet.desktop)
 
 `systemd` service sample file can be found [here](https://github.com/project-gauntlet/gauntlet/blob/main/assets/linux/gauntlet.service)
+
+Application plugin depends on `gtk-launch`
 
 #### Wayland
 
