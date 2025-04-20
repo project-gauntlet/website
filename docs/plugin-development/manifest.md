@@ -10,6 +10,15 @@ Plugin Manifest uses [TOML](https://toml.io) file format
 
 ## Main
 
+### `$schema`
+
+Some editors use `$schema` field to validate the content of the file. It is not used by Gauntlet.
+The schema can be found at `https://raw.githubusercontent.com/project-gauntlet/gauntlet/refs/heads/main/docs/schema/plugin_manifest.schema.json`
+
+| Type     | Required |
+|----------|----------|
+| `string` | no       |
+
 ### `gauntlet.name` 
 
 Name of the plugin. Displayed in main search view on each item and in settings 
@@ -25,6 +34,24 @@ Description of the plugin. Displayed in settings
 | Type     | Required |
 |----------|----------|
 | `string` | yes      |
+
+### `gauntlet.authors.[*].name`
+
+Name of one of the author of the plugin
+
+| Type     | Required |
+|----------|----------|
+| `string` | no       |
+
+### `gauntlet.authors.[*].uris`
+
+List of URIs that identify the author. Can be a link to social media page or an email.
+
+E.g. `https://github.com/Exidex` or `mailto:exidex@example.com`
+
+| Type             | Required |
+|------------------|----------|
+| list of `string` | no       |
 
 ## Plugin Preferences
 
