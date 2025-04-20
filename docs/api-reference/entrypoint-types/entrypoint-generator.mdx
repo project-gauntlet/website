@@ -4,19 +4,12 @@ sidebar_position: 4
 sidebar_label: "Entrypoint Generator"
 ---
 
-[//]: # (import GeneratorSimpleCode from '@site/src/generated/code_example/entrypoint_generator/simple';)
-
-[//]: # (import GeneratorFsEventCode from '@site/src/generated/code_example/entrypoint_generator/fs-event';)
-
-[//]: # (import GeneratorAccessoriesCode from '@site/src/generated/code_example/entrypoint_generator/accessories';)
-
-[//]: # (import GeneratorIconsCode from '@site/src/generated/code_example/entrypoint_generator/icons';)
-
-[//]: # (import GeneratorPreferencesCode from '@site/src/generated/code_example/entrypoint_generator/preferences';)
-
-[//]: # (import GeneratorActionCode from '@site/src/generated/code_example/entrypoint_generator/action';)
-
-[//]: # (import GeneratorActionShortcutCode from '@site/src/generated/code_example/entrypoint_generator/action-shortcut';)
+import GeneratorSimpleCode from '@site/src/generated/code_example/entrypoint_generator_simple/simple';
+import GeneratorFsEventsCode from '@site/src/generated/code_example/entrypoint_generator_fs_events/fs-events';
+import GeneratorAccessoriesCode from '@site/src/generated/code_example/entrypoint_generator_accessories/accessories';
+import GeneratorIconsCode from '@site/src/generated/code_example/entrypoint_generator_icons/icons';
+import GeneratorPreferencesCode from '@site/src/generated/code_example/entrypoint_generator_preferences/preferences';
+import GeneratorActionShortcutCode from '@site/src/generated/code_example/entrypoint_generator_action_shortcut/action-shortcut';
 
 ## Overview
 
@@ -50,45 +43,46 @@ JavaScript is a single-threaded language, at any time only one chunk of code is 
 
 This has implications on Gauntlet plugins.
 
-Let's say you have 2 entry points: view and entrypoint generator, let's also say that your generator entrypoint needs to scan some directories.
+Let's say in the same plugin you have 2 entrypoints: view and entrypoint generator, let's also say that your generator entrypoint needs to scan some directories.
 If you are using synchronous versions of functions to access file system, user will not be able to open any views
 because JS runtime is being busy with scanning directories. For this reason prefer using async versions of APIs where possible,
 or if your code is computationally intensive, offload the computation to a worker
 
 ## Examples
 
-### Simple
-TODO not dynamic
+[//]: # (TODO screenshots for the main search list)
 
-[//]: # (<GeneratorSimpleCode screenshot={false} />)
+### Simple
+
+<GeneratorSimpleCode screenshot={false} />
 
 ### Update based on file system events
 
-[//]: # (<GeneratorFsEventCode screenshot={false} />)
+This example shows how the name of the generated item can be dependent on the content of the file and will be updated when content of the file is updated
+
+<GeneratorFsEventsCode screenshot={false} />
 
 ### Accessories
 
-[//]: # (<GeneratorAccessoriesCode screenshot={false} />)
+<GeneratorAccessoriesCode screenshot={false} />
 
 ### Icons
 
-[//]: # (<GeneratorIconsCode screenshot={false} />)
+<GeneratorIconsCode screenshot={false} />
 
 ### Preferences
 
-[//]: # (<GeneratorPreferencesCode screenshot={false} />)
+Try changing the preference values in Settings UI, the change will be automatically reflected in the entrypoint list
 
-### Actions
-
-TODO primary and secondary action
-
-[//]: # (<GeneratorActionCode screenshot={false} />)
+<GeneratorPreferencesCode screenshot={false} />
 
 ### Action shortcuts
 
-TODO shortcut works when item is focused
+It is possible to assign specific shortcut to Entrypoint Action that works when the Entrypoint is focused
 
-[//]: # (<GeneratorActionShortcutCode screenshot={false} />)
+See [Plugin Manifest](../../plugin-development/manifest#entrypoint-actions) for more information on meaning of manifest property values
+
+<GeneratorActionShortcutCode screenshot={false} />
 
 ## Api Reference
 

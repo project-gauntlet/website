@@ -4,8 +4,8 @@ sidebar_position: 3
 sidebar_label: "Command"
 ---
 
-[//]: # (import CommandSimpleCode from '@site/src/generated/code_example/command/simple';)
-[//]: # (import CommandPreferencesCode from '@site/src/generated/code_example/command/preferences';)
+import CommandSimpleCode from '@site/src/generated/code_example/command/simple';
+import CommandPreferencesCode from '@site/src/generated/code_example/command/preferences';
 
 ## Overview
 
@@ -31,7 +31,7 @@ JavaScript is a single-threaded language, at any time only one chunk of code is 
 
 This has implications on Gauntlet plugins.
 
-Let's say you have 2 entry points: view and command, let's also say that your command entrypoint needs to scan some directories.
+Let's say in the same plugin you have 2 entrypoints: view and command, let's also say that your command entrypoint needs to scan some directories.
 If you are using synchronous versions of functions to access file system, user will not be able to open any views
 because JS runtime is being busy with scanning directories. For this reason prefer using async versions of APIs where possible,
 or if your code is computationally intensive, offload the computation to a worker
@@ -40,8 +40,8 @@ or if your code is computationally intensive, offload the computation to a worke
 
 ### Simple 
 
-[//]: # (<CommandSimpleCode screenshot={false} />)
+<CommandSimpleCode screenshot={false} />
 
 ### Preferences
 
-[//]: # (<CommandPreferencesCode screenshot={false} />)
+<CommandPreferencesCode screenshot={false} />

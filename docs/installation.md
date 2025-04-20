@@ -58,7 +58,7 @@ Note: application doesn't have auto-update functionality, and has to be updated 
 
 To start, manually open application.
 
-### Application packaging for Linux
+## Application packaging for Linux
 
 This section contains a list of things that could be useful for someone who wants to package application for Linux distribution.
 If something is missing, please [create an issue](https://github.com/project-gauntlet/gauntlet/issues)
@@ -80,6 +80,6 @@ Relevant CLI commands:
 
 Application plugin depends on `gtk-launch`
 
-#### Wayland
+### Wayland
 
 Wayland support requires LayerShell protocol `zwlr_layer_shell_v1`
