@@ -157,7 +157,7 @@ Path to TypeScript source file (`.ts` or `.tsx`). Default export has to be a fun
 
 ### `entrypoint.[*].icon`
 
-Path to assets file image file. Currently displayed size is 18x18 pixels
+Path to assets file image file relative to `assets` directory. Currently displayed size is 18x18 pixels
 
 | Type     | Required |
 |----------|----------|

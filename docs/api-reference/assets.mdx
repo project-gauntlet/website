@@ -1,0 +1,35 @@
+---
+title: "Assets"
+sidebar_position: 6
+sidebar_label: "Assets"
+---
+
+import AssetImageCode from '@site/src/generated/code_example/ui_icons_and_images/asset';
+import AssetsByteArrayCode from '@site/src/generated/code_example/command/assets';
+
+## Overview
+
+Assets are all files located in `assets` directory in root of plugin repository, be it image, text file or anything else.
+Asset files can be referenced in various predefined places in plugin manifest or code, or be imported as a byte array in your code
+
+
+## Icon of entrypoint
+
+Every entrypoint can have an icon. For non-generated entrypoints this icon is defined in Plugin Manifest. 
+See [Plugin Manifest](../plugin-development/manifest#entrypointicon) page for specific property 
+
+## Image in component
+
+Images in React views can also be fetched directly from assets
+
+<AssetImageCode/>
+
+## Byte array
+
+Assets can also be fetched on demand as `ArrayBuffer`
+
+<AssetsByteArrayCode screenshot={false}/>
+
+## API Reference
+
+TODO

@@ -4,9 +4,11 @@ sidebar_position: 7
 sidebar_label: "Storage and Cache"
 ---
 
+import StorageCode from '@site/src/generated/code_example/ui_storage/storage';
+
 ## Overview
 
-In Gauntlet there are 3 tiers of hooks to manage your view state: `useState`, `useCache` and `useStorage`
+In Gauntlet there are 3 tiers of hooks to manage your React view state: `useState`, `useCache` and `useStorage`
 
 - `useState`
   - Provided by React
@@ -15,22 +17,19 @@ In Gauntlet there are 3 tiers of hooks to manage your view state: `useState`, `u
   - Provided by Gauntlet
   - Ephemeral, state saved between view re-openings, but not between plugin restarts
   - Internally uses `sessionStorage`
+    - Max size of session storage is 10MB per plugin
 - `useStorage`
   - Provided by Gauntlet
   - Persistent, state saved between view re-openings and between plugin restarts
   - Internally uses `localStorage`
+    - Max size of local storage is 10MB per plugin
 
+## Example
 
-## `useState`
+<StorageCode screenshot={false}/>
 
-TODO example, type
+## Api Reference
 
-## `useCache`
-
-TODO example, type
-
-## `useStorage`
-
-TODO example, type
+TODO type
 
 
