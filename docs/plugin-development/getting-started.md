@@ -21,6 +21,12 @@ If you need some help with that, check out TypeScript's [Handbook](https://www.t
 
 :::note
 
+Gauntlet documentation also assumes that you have Plugin API TypeScript Declarations files of `@project-gauntlet/api` package open in your favourite IDE alongside this documentation
+
+:::
+
+:::note
+
 This page assumes that you will be using GitHub and GitHub Actions to host plugin repository and publish it.
 It is possible to use any other hosting solution with some minor changes to the plugin template, but it is outside the scope of this documentation
 

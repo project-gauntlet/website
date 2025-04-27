@@ -1,0 +1,140 @@
+---
+title: "Promise Helpers"
+sidebar_position: 8
+sidebar_label: "Promise Helpers"
+---
+
+import UsePromiseBasicCode from '@site/src/generated/code_example/ui_promise_helpers/basic';
+import UsePromiseRevalidateCode from '@site/src/generated/code_example/ui_promise_helpers/revalidate';
+import UsePromiseAbortableRevalidateCode from '@site/src/generated/code_example/ui_promise_helpers/abortable-revalidate';
+import UsePromiseExecuteFalseCode from '@site/src/generated/code_example/ui_promise_helpers/execute-false';
+import UsePromiseMutateCode from '@site/src/generated/code_example/ui_promise_helpers/mutate';
+import UsePromiseMutateNoRevalidateCode from '@site/src/generated/code_example/ui_promise_helpers/mutate-no-revalidate';
+import UsePromiseMutateOptimisticCode from '@site/src/generated/code_example/ui_promise_helpers/mutate-optimistic';
+import UsePromiseMutateOptimisticRollbackCode from '@site/src/generated/code_example/ui_promise_helpers/mutate-optimistic-rollback';
+
+import UseCachedPromiseBasicCode from '@site/src/generated/code_example/ui_promise_helpers/cached-basic';
+import UseCachedPromiseInitialCode from '@site/src/generated/code_example/ui_promise_helpers/cached-basic-initial-value';
+
+import UseFetchBasicCode from '@site/src/generated/code_example/ui_promise_helpers/fetch-basic';
+import UseFetchMapCode from '@site/src/generated/code_example/ui_promise_helpers/fetch-map';
+
+## Overview
+
+To make operations with promises in views easier, Gauntlet provides set of helper hooks
+
+## `usePromise`
+
+Helper to run promises in a context of React view
+
+### Examples
+
+#### Basic
+
+<UsePromiseBasicCode screenshot={false}/>
+
+#### Revalidate
+
+Usually the promise will be executed only on initial load of the view. It is often desired to manually refresh the state of the hook which can be done by calling `revalidate()`
+
+<UsePromiseRevalidateCode screenshot={false}/>
+
+#### Abortable
+
+Occasionally, revalidation can be started while the main promise is still in progress, if you want to detect when that happens `abortable` can be provided
+
+<UsePromiseAbortableRevalidateCode screenshot={false}/>
+
+#### No execution on load
+
+If `execute` option is set to `false`, the promise will be executed only on revalidation
+
+<UsePromiseExecuteFalseCode screenshot={false}/>
+
+#### Mutate
+
+"Mutation" is an action that is supposed to change the returned value of the main promise.
+E.g. if the main promise is the `fetch()` to backend to get list of items,
+the "mutation" would be an action that adds or removes items of that list.
+
+After the mutation is executed, this helper will automatically refresh the state of the hook by calling `revalidate()`
+
+<UsePromiseMutateCode screenshot={false}/>
+
+#### Mutate Without Revalidations
+
+But sometimes it is not desirable to do revalidation after mutation, so it can be disabled
+
+<UsePromiseMutateNoRevalidateCode screenshot={false}/>
+
+#### Mutate With Optimistic Update
+
+If the promise is for example the call to backend, it will usually take some time.
+And because the update is done from the current UI, it is often can be assumed that the update (aka mutation) will be successful (i.e. we are optimistic that it will succeed),
+and the UI can be updated right away to get much more responsive experience
+
+<UsePromiseMutateOptimisticCode screenshot={false}/>
+
+#### Mutate With Optimistic Update And Rollback
+
+When using optimistic update, if the mutation promise was rejected the value will be automatically reverted to what it was before the start of mutation.
+This behavior can be disabled by setting `rollbackOnError` option to `false` or, if set to a function, custom behaviour can be executed instead
+
+<UsePromiseMutateOptimisticRollbackCode screenshot={false}/>
+
+[//]: # (### Api Reference)
+
+[//]: # (TODO type)
+
+## `useCachedPromise`
+
+Helper to run promises with caching done automatically
+
+The main difference from `usePromise` is that the state stored in session storage.
+So it is reused from previous time this entrypoint view was opened, but not since before the plugin is restarted
+
+Follows "stale-while-revalidate" caching strategy
+
+All options from `usePromise` are also available in this hook
+
+### Examples
+
+#### Basic
+
+<UseCachedPromiseBasicCode screenshot={false}/>
+
+#### Initial Value
+
+If the view is opened for the first time, the cache state will be empty. It is possible to assign default initial value of the cache
+
+<UseCachedPromiseInitialCode screenshot={false}/>
+
+[//]: # (### Api Reference)
+
+[//]: # (TODO type)
+
+## `useFetch`
+
+Helper to run `fetch()` with caching done automatically.
+
+Uses `useCachedPromise` internally, so all parameters from it are exposed in this hook as well
+
+The state stored in session storage
+
+Follows "stale-while-revalidate" caching strategy
+
+If revalidation is done while `fetch()` is still in progress it will be canceled automatically
+
+### Examples
+
+#### Basic
+
+<UseFetchBasicCode screenshot={false}/>
+
+#### Map the returned value
+
+<UseFetchMapCode screenshot={false}/>
+
+[//]: # (### Api Reference)
+
+[//]: # (TODO type)

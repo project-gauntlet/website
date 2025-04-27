@@ -1,0 +1,39 @@
+---
+title: "Gauntlet Environment"
+sidebar_position: 9
+sidebar_label: "Environment"
+---
+
+import EnvironmentCode from '@site/src/generated/code_example/command_environment/environment';
+
+## Overview
+
+Environment API provides information about the environment in which the plugin is running and additional information about runtime
+
+## Example
+
+<EnvironmentCode screenshot={false}/>
+
+## `Environment.gauntletVersion`
+Type: `number`
+
+Returns currently Gauntlet version
+
+## `Environment.isDevelopment`
+Type: `boolean`
+
+Returns true if the plugin was installed using `npm run dev` command from dev tools as opposed to Settings UI
+
+## `Environment.pluginDataDir`
+Type: `string`
+
+Returns absolute path to directory that is assigned to current plugin only and is meant for storing general data. 
+If writing or reading to/from this directory Plugin must declare it in permissions using `{common:plugin-data}` [path variable](../plugin-development/manifest#path-variables).
+The directory will be created automatically during plugin startup
+
+## `Environment.pluginCacheDir`
+Type: `string`
+
+Returns absolute path to directory that is assigned to current plugin only and is meant for storing cache.
+If writing or reading to/from this directory Plugin must declare it in permissions using `{common:plugin-cache}` [path variable](../plugin-development/manifest#path-variables).
+The directory will be created automatically during plugin startup

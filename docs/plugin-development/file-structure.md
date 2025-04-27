@@ -40,7 +40,7 @@ All source files go into `src` directory. Currently, only TypeScript language is
 `assets` directory contains files which will be downloaded together with the plugin itself.
 It is optional and is only required if plugin has at least one asset
 
-See [Assets](../api-reference/assets.md)
+See [Assets](../api-reference/assets.mdx)
 
 ## `dist` directory
 

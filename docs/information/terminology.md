@@ -10,7 +10,7 @@ An explanation of various terms used in this documentation
 
 Action is a piece of functionality created by plugin that is executed on some kind of user action, be it mouse click or shortcut press.
 
-See [Action](../api-reference/actions.md) documentation
+See [Action](../api-reference/actions.mdx) documentation
 
 ## Entrypoint
 

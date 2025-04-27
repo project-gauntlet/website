@@ -121,8 +121,6 @@ Value of the enum value. One of these values will be used as a value of the fiel
 
 ## Entrypoints
 
-TODO description with link
-
 ### `entrypoint.[*].id`
 
 Identifier of the entrypoint. Can only contain: numbers, lowercase letters and dash
@@ -195,7 +193,102 @@ Description of the action. Displayed in settings
 
 Key part of shortcut that can be used to execute action.
 
-TODO list all possible values
+<details>
+<summary>All possible key values...</summary>
+- `"0"`
+- `"1"`
+- `"2"`
+- `"3"`
+- `"4"`
+- `"5"`
+- `"6"`
+- `"7"`
+- `"8"`
+- `"9"`
+- `"!"`
+- `"@"`
+- `"#"`
+- `"$"`
+- `"%"`
+- `"^"`
+- `"&"`
+- `"*"`
+- `"("`
+- `")"`
+- `"a"`
+- `"b"`
+- `"c"`
+- `"d"`
+- `"e"`
+- `"f"`
+- `"g"`
+- `"h"`
+- `"i"`
+- `"j"`
+- `"k"`
+- `"l"`
+- `"m"`
+- `"n"`
+- `"o"`
+- `"p"`
+- `"q"`
+- `"r"`
+- `"s"`
+- `"t"`
+- `"u"`
+- `"v"`
+- `"w"`
+- `"x"`
+- `"y"`
+- `"z"`
+- `"A"`
+- `"B"`
+- `"C"`
+- `"D"`
+- `"E"`
+- `"F"`
+- `"G"`
+- `"H"`
+- `"I"`
+- `"J"`
+- `"K"`
+- `"L"`
+- `"M"`
+- `"N"`
+- `"O"`
+- `"P"`
+- `"Q"`
+- `"R"`
+- `"S"`
+- `"T"`
+- `"U"`
+- `"V"`
+- `"W"`
+- `"X"`
+- `"Y"`
+- `"Z"`
+- `"-"`
+- `"="`
+- `","`
+- `"."`
+- `"/"`
+- `"["`
+- `"]"`
+- `";"`
+- `"'"`
+- `"\\"`
+- `"_"`
+- `"+"`
+- `"<"`
+- `">"`
+- `"?"`
+- `"{"`
+- `"}"`
+- `":"`
+- `"\""`
+- `"|"`
+</details>
+
 
 | Type     | Required |
 |----------|----------|
@@ -413,7 +506,7 @@ Some APIs in Deno require special system information permission. See [Deno docum
 
 ### `permissions.[*].clipboard`
 
-Allows plugin to read and manipulate OS clipboard via Gauntlet's [Clipboard API](../api-reference/clipboard.md)
+Allows plugin to read and manipulate OS clipboard via Gauntlet's [Clipboard API](../api-reference/clipboard.mdx)
 
 Allowed values: `"read"`, `"write"` and `"clear"`
 
