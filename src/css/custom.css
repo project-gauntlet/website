@@ -82,8 +82,8 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 html[data-theme='dark'] {
-  --ifm-background-color: #2C323A;
-  --ifm-background-surface-color: #272d34;
+  --ifm-background-color: oklch(24.353% 0 0);
+  --ifm-background-surface-color: oklch(20.944% 0 0);
 
   --ifm-color-primary-darkest: #a3804e;
   --ifm-color-primary-darker: #bb9359;
@@ -128,4 +128,8 @@ html[data-theme='dark'] {
   --ifm-h2-vertical-rhythm-top: 3.5;
   --ifm-h3-vertical-rhythm-top: 3;
   --ifm-heading-vertical-rhythm-top: 2.25;
+}
+
+.footer--dark {
+  --ifm-footer-background-color: oklch(22.648% 0 0);
 }
