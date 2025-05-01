@@ -70,7 +70,7 @@ But sometimes it is not desirable to do revalidation after mutation, so it can b
 #### Mutate With Optimistic Update
 
 If the promise is for example the call to backend, it will usually take some time.
-And because the update is done from the current UI, it is often can be assumed that the update (aka mutation) will be successful (i.e. we are optimistic that it will succeed),
+And because the update is done from the current UI, it often can be assumed that the update (aka mutation) will be successful (i.e. we are optimistic that it will succeed),
 and the UI can be updated right away to get much more responsive experience
 
 <UsePromiseMutateOptimisticCode screenshot={false}/>
