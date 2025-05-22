@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-plugin-development/manifest" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.6.1">
+<title data-rh="true">Plugin Manifest | Gauntlet</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://gauntlet.sh/docs/plugin-development/manifest"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Plugin Manifest | Gauntlet"><meta data-rh="true" name="description" content="Overview"><meta data-rh="true" property="og:description" content="Overview"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://gauntlet.sh/docs/plugin-development/manifest"><link data-rh="true" rel="alternate" href="https://gauntlet.sh/docs/plugin-development/manifest" hreflang="en"><link data-rh="true" rel="alternate" href="https://gauntlet.sh/docs/plugin-development/manifest" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.1e206b93.css">
+<script src="/assets/js/runtime~main.b598266e.js" defer="defer"></script>
+<script src="/assets/js/main.d5a10a17.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"dark")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.png" alt="Gauntlet Logo" class="themedComponent_mlkZ themedComponent--light_NVdE" style="border-radius:8px"><img src="/img/logo.png" alt="Gauntlet Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU" style="border-radius:8px"></div><b class="navbar__title text--truncate">Gauntlet</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs">Docs</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/project-gauntlet/gauntlet" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently dark mode)" aria-label="Switch between dark and light mode (currently dark mode)" aria-live="polite" aria-pressed="true"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs">Introduction</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/installation">Installation</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link">Information</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/information/terminology">Terminology</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/information/architecture">Architecture</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/information/versioning">Versioning</a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/plugin-installation">Plugin Installation</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/application-config">Config</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/theming">Theming</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/feature-support">Feature Support</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/troubleshooting">Troubleshooting</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--active">Plugin Development</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/plugin-development/getting-started">Getting Started</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/plugin-development/manifest">Manifest</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/plugin-development/file-structure">File Structure</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link">API Reference</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link" tabindex="0">Entrypoints</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link" tabindex="0">View</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api-reference/entrypoint-types/view/details">Detail</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api-reference/entrypoint-types/view/form">Form</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api-reference/entrypoint-types/view/grid">Grid</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api-reference/entrypoint-types/view/list">List</a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api-reference/entrypoint-types/inline-view">Inline View</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api-reference/entrypoint-types/command">Command</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api-reference/entrypoint-types/entrypoint-generator">Entrypoint Generator</a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api-reference/icons-and-images">Icons and Images</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api-reference/navigation">Navigation</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api-reference/actions">Actions</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api-reference/preferences">Preferences</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api-reference/assets">Assets</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api-reference/storage-and-cache">Storage and Cache</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api-reference/clipboard">Clipboard</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api-reference/promise-helpers">Promise Helpers</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/api-reference/environment">Environment</a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Plugin Development</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Manifest</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Plugin Manifest</h1></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="overview">Overview<a href="#overview" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview">​</a></h2>
+<p>Plugin Manifest uses <a href="https://toml.io" target="_blank" rel="noopener noreferrer">TOML</a> file format</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="main">Main<a href="#main" class="hash-link" aria-label="Direct link to Main" title="Direct link to Main">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="schema"><code>$schema</code><a href="#schema" class="hash-link" aria-label="Direct link to schema" title="Direct link to schema">​</a></h3>
+<p>Some editors use <code>$schema</code> field to validate the content of the file. It is not used by Gauntlet.
+The schema can be found at <code>https://raw.githubusercontent.com/project-gauntlet/gauntlet/refs/heads/main/docs/schema/plugin_manifest.schema.json</code></p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>string</code></td><td>no</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="gauntletname"><code>gauntlet.name</code><a href="#gauntletname" class="hash-link" aria-label="Direct link to gauntletname" title="Direct link to gauntletname">​</a></h3>
+<p>Name of the plugin. Displayed in main search view on each item and in settings</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>string</code></td><td>yes</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="gauntletdescription"><code>gauntlet.description</code><a href="#gauntletdescription" class="hash-link" aria-label="Direct link to gauntletdescription" title="Direct link to gauntletdescription">​</a></h3>
+<p>Description of the plugin. Displayed in settings</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>string</code></td><td>yes</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="gauntletauthorsname"><code>gauntlet.authors.[*].name</code><a href="#gauntletauthorsname" class="hash-link" aria-label="Direct link to gauntletauthorsname" title="Direct link to gauntletauthorsname">​</a></h3>
+<p>Name of one of the author of the plugin</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>string</code></td><td>no</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="gauntletauthorsuris"><code>gauntlet.authors.[*].uris</code><a href="#gauntletauthorsuris" class="hash-link" aria-label="Direct link to gauntletauthorsuris" title="Direct link to gauntletauthorsuris">​</a></h3>
+<p>List of URIs that identify the author. Can be a link to social media page or an email.</p>
+<p>E.g. <code>https://github.com/Exidex</code> or <code>mailto:exidex@example.com</code></p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td>list of <code>string</code></td><td>no</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="plugin-preferences">Plugin Preferences<a href="#plugin-preferences" class="hash-link" aria-label="Direct link to Plugin Preferences" title="Direct link to Plugin Preferences">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="preferencesid"><code>preferences.[*].id</code><a href="#preferencesid" class="hash-link" aria-label="Direct link to preferencesid" title="Direct link to preferencesid">​</a></h3>
+<p>ID of the plugin preference. This will be used as name of the field in TypeScript.
+Can only contain: numbers, uppercase and lowercase letters</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>string</code></td><td>yes</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="preferencesname"><code>preferences.[*].name</code><a href="#preferencesname" class="hash-link" aria-label="Direct link to preferencesname" title="Direct link to preferencesname">​</a></h3>
+<p>Name of the plugin preference. Displayed in settings</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>string</code></td><td>yes</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="preferencesdescription"><code>preferences.[*].description</code><a href="#preferencesdescription" class="hash-link" aria-label="Direct link to preferencesdescription" title="Direct link to preferencesdescription">​</a></h3>
+<p>Description of the plugin preference. Displayed in settings</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>string</code></td><td>yes</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="preferencestype"><code>preferences.[*].type</code><a href="#preferencestype" class="hash-link" aria-label="Direct link to preferencestype" title="Direct link to preferencestype">​</a></h3>
+<p>Type of the plugin preference.
+Allowed values: <code>&quot;number&quot;</code>, <code>&quot;string&quot;</code>, <code>&quot;enum&quot;</code>, <code>&quot;bool&quot;</code>, <code>&quot;list_of_strings&quot;</code>, <code>&quot;list_of_numbers&quot;</code> and <code>&quot;list_of_enums&quot;</code></p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>enum</code></td><td>yes</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="preferencesdefault"><code>preferences.[*].default</code><a href="#preferencesdefault" class="hash-link" aria-label="Direct link to preferencesdefault" title="Direct link to preferencesdefault">​</a></h3>
+<p>Provides default value for the plugin preference.
+If not specified, preference will be considered required and user will be prompted to enter the value</p>
+<p>If preference type is <code>&quot;enum&quot;</code> or <code>&quot;list_of_enums&quot;</code>, <code>enum_values</code> property has to be provided and default value has to be one of values defined in <code>enum_values</code></p>
+<p>Currently, not supported for list types, for which default value will be an empty list</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>number</code>, <code>string</code>, <code>bool</code> or list of one of those depending on type of preference</td><td>no</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="preferencesenum_valueslabel"><code>preferences.[*].enum_values.[*].label</code><a href="#preferencesenum_valueslabel" class="hash-link" aria-label="Direct link to preferencesenum_valueslabel" title="Direct link to preferencesenum_valueslabel">​</a></h3>
+<p>Label of the enum value. Displayed in settings</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>string</code></td><td>yes</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="preferencesenum_valuesvalue"><code>preferences.[*].enum_values.[*].value</code><a href="#preferencesenum_valuesvalue" class="hash-link" aria-label="Direct link to preferencesenum_valuesvalue" title="Direct link to preferencesenum_valuesvalue">​</a></h3>
+<p>Value of the enum value. One of these values will be used as a value of the field in TypeScript and in <code>default</code> property</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>string</code></td><td>yes</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="entrypoints">Entrypoints<a href="#entrypoints" class="hash-link" aria-label="Direct link to Entrypoints" title="Direct link to Entrypoints">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="entrypointid"><code>entrypoint.[*].id</code><a href="#entrypointid" class="hash-link" aria-label="Direct link to entrypointid" title="Direct link to entrypointid">​</a></h3>
+<p>Identifier of the entrypoint. Can only contain: numbers, lowercase letters and dash</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>string</code></td><td>yes</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="entrypointname"><code>entrypoint.[*].name</code><a href="#entrypointname" class="hash-link" aria-label="Direct link to entrypointname" title="Direct link to entrypointname">​</a></h3>
+<p>Name of the entrypoint. Displayed in main search view on each item, in settings and in bottom left of each plugin created view</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>string</code></td><td>yes</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="entrypointdescription"><code>entrypoint.[*].description</code><a href="#entrypointdescription" class="hash-link" aria-label="Direct link to entrypointdescription" title="Direct link to entrypointdescription">​</a></h3>
+<p>Description of the entrypoint. Displayed in settings</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>string</code></td><td>yes</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="entrypointpath"><code>entrypoint.[*].path</code><a href="#entrypointpath" class="hash-link" aria-label="Direct link to entrypointpath" title="Direct link to entrypointpath">​</a></h3>
+<p>Path to TypeScript source file (<code>.ts</code> or <code>.tsx</code>). Default export has to be a function, actual function signature depends on entrypoint type</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>string</code></td><td>yes</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="entrypointicon"><code>entrypoint.[*].icon</code><a href="#entrypointicon" class="hash-link" aria-label="Direct link to entrypointicon" title="Direct link to entrypointicon">​</a></h3>
+<p>Path to assets file image file relative to <code>assets</code> directory. Currently displayed size is 18x18 pixels</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>string</code></td><td>no</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="entrypointtype"><code>entrypoint.[*].type</code><a href="#entrypointtype" class="hash-link" aria-label="Direct link to entrypointtype" title="Direct link to entrypointtype">​</a></h3>
+<p>Type of the entrypoint. Only following values are allowed: <code>&quot;command&quot;</code>, <code>&quot;view&quot;</code>, <code>&quot;inline-view&quot;</code> and <code>&quot;entrypoint-generator&quot;</code></p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>enum</code></td><td>yes</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="entrypoint-actions">Entrypoint Actions<a href="#entrypoint-actions" class="hash-link" aria-label="Direct link to Entrypoint Actions" title="Direct link to Entrypoint Actions">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="entrypointactionsid"><code>entrypoint.[*].actions.[*].id</code><a href="#entrypointactionsid" class="hash-link" aria-label="Direct link to entrypointactionsid" title="Direct link to entrypointactionsid">​</a></h3>
+<p>ID of an action. Referenced from code to assign shortcut to an action.
+Can only contain: numbers, uppercase and lowercase letters</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>string</code></td><td>yes</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="entrypointactionsdescription"><code>entrypoint.[*].actions.[*].description</code><a href="#entrypointactionsdescription" class="hash-link" aria-label="Direct link to entrypointactionsdescription" title="Direct link to entrypointactionsdescription">​</a></h3>
+<p>Description of the action. Displayed in settings</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>string</code></td><td>yes</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="entrypointactionsshortcut"><code>entrypoint.[*].actions.[*].shortcut</code><a href="#entrypointactionsshortcut" class="hash-link" aria-label="Direct link to entrypointactionsshortcut" title="Direct link to entrypointactionsshortcut">​</a></h3>
+<p>Shortcut that can be used to execute action</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>object</code></td><td>false</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="entrypointactionsshortcutkey"><code>entrypoint.[*].actions.[*].shortcut.key</code><a href="#entrypointactionsshortcutkey" class="hash-link" aria-label="Direct link to entrypointactionsshortcutkey" title="Direct link to entrypointactionsshortcutkey">​</a></h3>
+<p>Key part of the shortcut</p>
+<details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary>All possible key values...</summary><div><div class="collapsibleContent_i85q"><ul>
+<li><code>&quot;0&quot;</code></li>
+<li><code>&quot;1&quot;</code></li>
+<li><code>&quot;2&quot;</code></li>
+<li><code>&quot;3&quot;</code></li>
+<li><code>&quot;4&quot;</code></li>
+<li><code>&quot;5&quot;</code></li>
+<li><code>&quot;6&quot;</code></li>
+<li><code>&quot;7&quot;</code></li>
+<li><code>&quot;8&quot;</code></li>
+<li><code>&quot;9&quot;</code></li>
+<li><code>&quot;!&quot;</code></li>
+<li><code>&quot;@&quot;</code></li>
+<li><code>&quot;#&quot;</code></li>
+<li><code>&quot;$&quot;</code></li>
+<li><code>&quot;%&quot;</code></li>
+<li><code>&quot;^&quot;</code></li>
+<li><code>&quot;&amp;&quot;</code></li>
+<li><code>&quot;*&quot;</code></li>
+<li><code>&quot;(&quot;</code></li>
+<li><code>&quot;)&quot;</code></li>
+<li><code>&quot;a&quot;</code></li>
+<li><code>&quot;b&quot;</code></li>
+<li><code>&quot;c&quot;</code></li>
+<li><code>&quot;d&quot;</code></li>
+<li><code>&quot;e&quot;</code></li>
+<li><code>&quot;f&quot;</code></li>
+<li><code>&quot;g&quot;</code></li>
+<li><code>&quot;h&quot;</code></li>
+<li><code>&quot;i&quot;</code></li>
+<li><code>&quot;j&quot;</code></li>
+<li><code>&quot;k&quot;</code></li>
+<li><code>&quot;l&quot;</code></li>
+<li><code>&quot;m&quot;</code></li>
+<li><code>&quot;n&quot;</code></li>
+<li><code>&quot;o&quot;</code></li>
+<li><code>&quot;p&quot;</code></li>
+<li><code>&quot;q&quot;</code></li>
+<li><code>&quot;r&quot;</code></li>
+<li><code>&quot;s&quot;</code></li>
+<li><code>&quot;t&quot;</code></li>
+<li><code>&quot;u&quot;</code></li>
+<li><code>&quot;v&quot;</code></li>
+<li><code>&quot;w&quot;</code></li>
+<li><code>&quot;x&quot;</code></li>
+<li><code>&quot;y&quot;</code></li>
+<li><code>&quot;z&quot;</code></li>
+<li><code>&quot;A&quot;</code></li>
+<li><code>&quot;B&quot;</code></li>
+<li><code>&quot;C&quot;</code></li>
+<li><code>&quot;D&quot;</code></li>
+<li><code>&quot;E&quot;</code></li>
+<li><code>&quot;F&quot;</code></li>
+<li><code>&quot;G&quot;</code></li>
+<li><code>&quot;H&quot;</code></li>
+<li><code>&quot;I&quot;</code></li>
+<li><code>&quot;J&quot;</code></li>
+<li><code>&quot;K&quot;</code></li>
+<li><code>&quot;L&quot;</code></li>
+<li><code>&quot;M&quot;</code></li>
+<li><code>&quot;N&quot;</code></li>
+<li><code>&quot;O&quot;</code></li>
+<li><code>&quot;P&quot;</code></li>
+<li><code>&quot;Q&quot;</code></li>
+<li><code>&quot;R&quot;</code></li>
+<li><code>&quot;S&quot;</code></li>
+<li><code>&quot;T&quot;</code></li>
+<li><code>&quot;U&quot;</code></li>
+<li><code>&quot;V&quot;</code></li>
+<li><code>&quot;W&quot;</code></li>
+<li><code>&quot;X&quot;</code></li>
+<li><code>&quot;Y&quot;</code></li>
+<li><code>&quot;Z&quot;</code></li>
+<li><code>&quot;-&quot;</code></li>
+<li><code>&quot;=&quot;</code></li>
+<li><code>&quot;,&quot;</code></li>
+<li><code>&quot;.&quot;</code></li>
+<li><code>&quot;/&quot;</code></li>
+<li><code>&quot;[&quot;</code></li>
+<li><code>&quot;]&quot;</code></li>
+<li><code>&quot;;&quot;</code></li>
+<li><code>&quot;&#x27;&quot;</code></li>
+<li><code>&quot;\\&quot;</code></li>
+<li><code>&quot;_&quot;</code></li>
+<li><code>&quot;+&quot;</code></li>
+<li><code>&quot;&lt;&quot;</code></li>
+<li><code>&quot;&gt;&quot;</code></li>
+<li><code>&quot;?&quot;</code></li>
+<li><code>&quot;{&quot;</code></li>
+<li><code>&quot;}&quot;</code></li>
+<li><code>&quot;:&quot;</code></li>
+<li><code>&quot;\&quot;&quot;</code></li>
+<li><code>&quot;|&quot;</code></li>
+</ul></div></div></details>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>string</code></td><td>yes</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="entrypointactionsshortcutkind"><code>entrypoint.[*].actions.[*].shortcut.kind</code><a href="#entrypointactionsshortcutkind" class="hash-link" aria-label="Direct link to entrypointactionsshortcutkind" title="Direct link to entrypointactionsshortcutkind">​</a></h3>
+<p>Kind of the shortcut. Allowed values: <code>&quot;main&quot;</code> and <code>&quot;alternative&quot;</code></p>
+<p>Modifiers:</p>
+<ul>
+<li><code>&quot;main&quot;</code>
+<ul>
+<li>Windows and Linux: <kbd>CTRL</kbd></li>
+<li>macOS: <kbd>CMD</kbd></li>
+</ul>
+</li>
+<li><code>&quot;alternative&quot;</code>
+<ul>
+<li>Windows and Linux: <kbd>ALT</kbd></li>
+<li>macOS: <kbd>OPT</kbd></li>
+</ul>
+</li>
+</ul>
+<p>Whether <kbd>SHIFT</kbd> is also required depends on character specified for shortcut key,
+e.g. <code>key</code> property value <code>&quot;$&quot;</code> will require <kbd>SHIFT</kbd> to be pressed, while <code>&quot;4&quot;</code> will not</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>enum</code></td><td>yes</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="entrypoint-preferences">Entrypoint Preferences<a href="#entrypoint-preferences" class="hash-link" aria-label="Direct link to Entrypoint Preferences" title="Direct link to Entrypoint Preferences">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="entrypointpreferencesid"><code>entrypoint.[*].preferences.[*].id</code><a href="#entrypointpreferencesid" class="hash-link" aria-label="Direct link to entrypointpreferencesid" title="Direct link to entrypointpreferencesid">​</a></h3>
+<p>ID of the entrypoint preference. This will be used as name of the field in TypeScript.
+Can only contain: numbers, uppercase and lowercase letters</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>string</code></td><td>yes</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="entrypointpreferencesname"><code>entrypoint.[*].preferences.[*].name</code><a href="#entrypointpreferencesname" class="hash-link" aria-label="Direct link to entrypointpreferencesname" title="Direct link to entrypointpreferencesname">​</a></h3>
+<p>Name of the entrypoint preference. Displayed in settings</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>string</code></td><td>yes</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="entrypointpreferencesdescription"><code>entrypoint.[*].preferences.[*].description</code><a href="#entrypointpreferencesdescription" class="hash-link" aria-label="Direct link to entrypointpreferencesdescription" title="Direct link to entrypointpreferencesdescription">​</a></h3>
+<p>Description of the entrypoint preference. Displayed in settings</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>string</code></td><td>yes</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="entrypointpreferencestype"><code>entrypoint.[*].preferences.[*].type</code><a href="#entrypointpreferencestype" class="hash-link" aria-label="Direct link to entrypointpreferencestype" title="Direct link to entrypointpreferencestype">​</a></h3>
+<p>Type of the entrypoint preference.
+Allowed values: <code>&quot;number&quot;</code>, <code>&quot;string&quot;</code>, <code>&quot;enum&quot;</code>, <code>&quot;bool&quot;</code>, <code>&quot;list_of_strings&quot;</code>, <code>&quot;list_of_numbers&quot;</code> and <code>&quot;list_of_enums&quot;</code></p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>enum</code></td><td>yes</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="entrypointpreferencesdefault"><code>entrypoint.[*].preferences.[*].default</code><a href="#entrypointpreferencesdefault" class="hash-link" aria-label="Direct link to entrypointpreferencesdefault" title="Direct link to entrypointpreferencesdefault">​</a></h3>
+<p>Provides default value for the entrypoint preference.
+If not specified, preference will be considered required and user will be prompted to enter the value</p>
+<p>If preference type is <code>&quot;enum&quot;</code> or <code>&quot;list_of_enums&quot;</code>, <code>enum_values</code> property has to be provided and default value has to be one of values defined in <code>enum_values</code></p>
+<p>Currently, not supported for list types, for which default value will be an empty list</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>number</code>, <code>string</code>, <code>bool</code> or list of one of those depending on type of preference</td><td>no</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="entrypointpreferencesenum_valueslabel"><code>entrypoint.[*].preferences.[*].enum_values.[*].label</code><a href="#entrypointpreferencesenum_valueslabel" class="hash-link" aria-label="Direct link to entrypointpreferencesenum_valueslabel" title="Direct link to entrypointpreferencesenum_valueslabel">​</a></h3>
+<p>Label of the enum value. Displayed in settings</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>string</code></td><td>yes</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="entrypointpreferencesenum_valuesvalue"><code>entrypoint.[*].preferences.[*].enum_values.[*].value</code><a href="#entrypointpreferencesenum_valuesvalue" class="hash-link" aria-label="Direct link to entrypointpreferencesenum_valuesvalue" title="Direct link to entrypointpreferencesenum_valuesvalue">​</a></h3>
+<p>Value of the enum value. One of these values will be used as a value of the field in TypeScript and in <code>default</code> property</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>string</code></td><td>yes</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="permissions">Permissions<a href="#permissions" class="hash-link" aria-label="Direct link to Permissions" title="Direct link to Permissions">​</a></h2>
+<p>Permission system in Gauntlet relies on Deno Security model. See <a href="https://docs.deno.com/runtime/fundamentals/security" target="_blank" rel="noopener noreferrer">Deno documentation</a> for in depth information</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="permissionsenvironment"><code>permissions.[*].environment</code><a href="#permissionsenvironment" class="hash-link" aria-label="Direct link to permissionsenvironment" title="Direct link to permissionsenvironment">​</a></h3>
+<p>Allows plugin to set or read listed environment variables. Values are names of environment variables</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td>list of <code>string</code></td><td>false</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="permissionsnetwork"><code>permissions.[*].network</code><a href="#permissionsnetwork" class="hash-link" aria-label="Direct link to permissionsnetwork" title="Direct link to permissionsnetwork">​</a></h3>
+<p>Allows plugin to make network requests, open network listeners or perform DNS resolution.
+This includes making HTTP requests, opening TCP/UDP sockets, and listening for incoming connections on TCP or UDP.
+Values are IPv4, IPv6 or domain name, with optional port number</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td>list of <code>string</code></td><td>false</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="permissionsfilesystemread"><code>permissions.[*].filesystem.read</code><a href="#permissionsfilesystemread" class="hash-link" aria-label="Direct link to permissionsfilesystemread" title="Direct link to permissionsfilesystemread">​</a></h3>
+<p>Allows plugin to read files on the file system inside specified path.
+This includes listing the contents of directories, checking for the existence of a given file, and connecting to Unix sockets</p>
+<p>Only absolute paths are allowed</p>
+<p>For Windows paths only <code>C:</code> drive is allowed to be specified</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="path-variables">Path variables<a href="#path-variables" class="hash-link" aria-label="Direct link to Path variables" title="Direct link to Path variables">​</a></h4>
+<p>Path permissions can contain also variables which will be resolved at plugin load time</p>
+<p>Examples: <code>&quot;{linux:user-home}/.local/share&quot;</code>, <code>&quot;{common:plugin-cache}/my-plugin-cache&quot;</code></p>
+<p>Variables can only be used at the beginning of the path</p>
+<p>List of currently available variables:</p>
+<ul>
+<li><code>{macos:user-home}</code>
+<ul>
+<li>Resolves to <code>$HOME</code>, i.e. <code>/Users/&lt;username&gt;</code></li>
+<li>Only available if plugin supports macOS</li>
+</ul>
+</li>
+<li><code>{linux:user-home}</code>
+<ul>
+<li>Resolves to <code>$HOME</code>, i.e. <code>/home/&lt;username&gt;</code></li>
+<li>Only available if plugin supports Linux</li>
+</ul>
+</li>
+<li><code>{windows:user-home}</code>
+<ul>
+<li>Resolves to <code>{FOLDERID_Profile}</code>, i.e. <code>C:\Users\&lt;username&gt;</code></li>
+<li>Only available if plugin supports Windows</li>
+</ul>
+</li>
+<li><code>{common:plugin-data}</code>
+<ul>
+<li>On Windows: <code>{FOLDERID_RoamingAppData}\Gauntlet\data\plugins\&lt;plugin-uuid&gt;</code></li>
+<li>On Linux: <code>$XDG_DATA_HOME/gauntlet/plugins/&lt;plugin-uuid&gt;</code></li>
+<li>On macOS: <code>$HOME/Library/Application Support/dev.project-gauntlet.gauntlet/plugins/&lt;plugin-uuid&gt;</code></li>
+</ul>
+</li>
+<li><code>{common:plugin-cache}</code>
+<ul>
+<li>On Windows: <code>{FOLDERID_LocalAppData}\Gauntlet\cache\plugins\&lt;plugin-uuid&gt;</code></li>
+<li>On Linux: <code>$XDG_CACHE_HOME/gauntlet/plugins/&lt;plugin-uuid&gt;</code></li>
+<li>On macOS: <code>$HOME/Library/Application Support/dev.project-gauntlet.gauntlet/plugins/&lt;plugin-uuid&gt;</code></li>
+</ul>
+</li>
+</ul>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td>list of <code>string</code></td><td>false</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="permissionsfilesystemwrite"><code>permissions.[*].filesystem.write</code><a href="#permissionsfilesystemwrite" class="hash-link" aria-label="Direct link to permissionsfilesystemwrite" title="Direct link to permissionsfilesystemwrite">​</a></h3>
+<p>Allows plugin to write to files on the file system inside specified path.
+This includes creating files or directories, writing to files and opening to Unix sockets</p>
+<p>Only absolute paths are allowed</p>
+<p>For Windows paths only <code>C:</code> drive is allowed to be specified</p>
+<p>Path permissions can contain also variables which will be resolved at plugin load time.
+See <a href="#path-variables">filesystem read permissions section</a> for allowed variables</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td>list of <code>string</code></td><td>false</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="permissionsexeccommand"><code>permissions.[*].exec.command</code><a href="#permissionsexeccommand" class="hash-link" aria-label="Direct link to permissionsexeccommand" title="Direct link to permissionsexeccommand">​</a></h3>
+<p>Allows plugins to spawn subprocesses.</p>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>warning</div><div class="admonitionContent_BuS1"><p>Plugin with ability to create subprocesses can effectively do any arbitrary action on user machine without declaring proper permissions</p></div></div>
+<p>Values are names of commands on <code>PATH</code> environment variable.
+Actual path to used executable is resolved at plugin runtime load time due to restriction in Deno,
+so spawning subprocess of command whose executable was created after plugin runtime load time will fail with permission error</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td>list of <code>string</code></td><td>false</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="permissionsexecexecutable"><code>permissions.[*].exec.executable</code><a href="#permissionsexecexecutable" class="hash-link" aria-label="Direct link to permissionsexecexecutable" title="Direct link to permissionsexecexecutable">​</a></h3>
+<p>Allows plugins to spawn subprocesses</p>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>warning</div><div class="admonitionContent_BuS1"><p>Plugin with ability to create subprocesses can effectively do any arbitrary action on user machine without declaring proper permissions</p></div></div>
+<p>Only absolute paths are allowed</p>
+<p>For Windows paths only <code>C:</code> drive is allowed to be specified</p>
+<p>Path permissions can contain also variables which will be resolved at plugin load time.
+See <a href="#path-variables">filesystem read permissions section</a> for allowed variables</p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td>list of <code>string</code></td><td>false</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="permissionssystem"><code>permissions.[*].system</code><a href="#permissionssystem" class="hash-link" aria-label="Direct link to permissionssystem" title="Direct link to permissionssystem">​</a></h3>
+<p>Some APIs in Deno require special system information permission. See <a href="https://docs.deno.com/runtime/fundamentals/security/#system-information" target="_blank" rel="noopener noreferrer">Deno documentation</a></p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td>list of <code>string</code></td><td>false</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="permissionsclipboard"><code>permissions.[*].clipboard</code><a href="#permissionsclipboard" class="hash-link" aria-label="Direct link to permissionsclipboard" title="Direct link to permissionsclipboard">​</a></h3>
+<p>Allows plugin to read and manipulate OS clipboard via Gauntlet&#x27;s <a href="/docs/api-reference/clipboard">Clipboard API</a></p>
+<p>Allowed values: <code>&quot;read&quot;</code>, <code>&quot;write&quot;</code> and <code>&quot;clear&quot;</code></p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td>list of <code>enum</code></td><td>false</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="permissionsmain_search_bar"><code>permissions.[*].main_search_bar</code><a href="#permissionsmain_search_bar" class="hash-link" aria-label="Direct link to permissionsmain_search_bar" title="Direct link to permissionsmain_search_bar">​</a></h3>
+<p>Allows plugin to read value of main search bar at any time. Required to use <a href="/docs/api-reference/entrypoint-types/inline-view">Inline view entrypoint</a></p>
+<p>Allowed values: <code>&quot;read&quot;</code></p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td>list of <code>enum</code></td><td>false</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="other">Other<a href="#other" class="hash-link" aria-label="Direct link to Other" title="Direct link to Other">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="supported_systemos"><code>supported_system.[*].os</code><a href="#supported_systemos" class="hash-link" aria-label="Direct link to supported_systemos" title="Direct link to supported_systemos">​</a></h3>
+<p>Specifies which OS is supported by plugin. Only required if plugin uses one of the following permissions:
+environment variables, filesystem, system, exec. If plugin doesn&#x27;t use any of those permissions, plugin is considered cross-platform</p>
+<p>Allowed values: <code>&quot;linux&quot;</code>, <code>&quot;windows&quot;</code> and <code>&quot;macos&quot;</code></p>
+<table><thead><tr><th>Type</th><th>Required</th></tr></thead><tbody><tr><td><code>enum</code></td><td>true</td></tr></tbody></table></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/project-gauntlet/website/tree/main/docs/plugin-development/manifest.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/plugin-development/getting-started"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Getting Started</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/plugin-development/file-structure"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">File Structure</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#main" class="table-of-contents__link toc-highlight">Main</a><ul><li><a href="#schema" class="table-of-contents__link toc-highlight"><code>$schema</code></a></li><li><a href="#gauntletname" class="table-of-contents__link toc-highlight"><code>gauntlet.name</code></a></li><li><a href="#gauntletdescription" class="table-of-contents__link toc-highlight"><code>gauntlet.description</code></a></li><li><a href="#gauntletauthorsname" class="table-of-contents__link toc-highlight"><code>gauntlet.authors.[*].name</code></a></li><li><a href="#gauntletauthorsuris" class="table-of-contents__link toc-highlight"><code>gauntlet.authors.[*].uris</code></a></li></ul></li><li><a href="#plugin-preferences" class="table-of-contents__link toc-highlight">Plugin Preferences</a><ul><li><a href="#preferencesid" class="table-of-contents__link toc-highlight"><code>preferences.[*].id</code></a></li><li><a href="#preferencesname" class="table-of-contents__link toc-highlight"><code>preferences.[*].name</code></a></li><li><a href="#preferencesdescription" class="table-of-contents__link toc-highlight"><code>preferences.[*].description</code></a></li><li><a href="#preferencestype" class="table-of-contents__link toc-highlight"><code>preferences.[*].type</code></a></li><li><a href="#preferencesdefault" class="table-of-contents__link toc-highlight"><code>preferences.[*].default</code></a></li><li><a href="#preferencesenum_valueslabel" class="table-of-contents__link toc-highlight"><code>preferences.[*].enum_values.[*].label</code></a></li><li><a href="#preferencesenum_valuesvalue" class="table-of-contents__link toc-highlight"><code>preferences.[*].enum_values.[*].value</code></a></li></ul></li><li><a href="#entrypoints" class="table-of-contents__link toc-highlight">Entrypoints</a><ul><li><a href="#entrypointid" class="table-of-contents__link toc-highlight"><code>entrypoint.[*].id</code></a></li><li><a href="#entrypointname" class="table-of-contents__link toc-highlight"><code>entrypoint.[*].name</code></a></li><li><a href="#entrypointdescription" class="table-of-contents__link toc-highlight"><code>entrypoint.[*].description</code></a></li><li><a href="#entrypointpath" class="table-of-contents__link toc-highlight"><code>entrypoint.[*].path</code></a></li><li><a href="#entrypointicon" class="table-of-contents__link toc-highlight"><code>entrypoint.[*].icon</code></a></li><li><a href="#entrypointtype" class="table-of-contents__link toc-highlight"><code>entrypoint.[*].type</code></a></li></ul></li><li><a href="#entrypoint-actions" class="table-of-contents__link toc-highlight">Entrypoint Actions</a><ul><li><a href="#entrypointactionsid" class="table-of-contents__link toc-highlight"><code>entrypoint.[*].actions.[*].id</code></a></li><li><a href="#entrypointactionsdescription" class="table-of-contents__link toc-highlight"><code>entrypoint.[*].actions.[*].description</code></a></li><li><a href="#entrypointactionsshortcut" class="table-of-contents__link toc-highlight"><code>entrypoint.[*].actions.[*].shortcut</code></a></li><li><a href="#entrypointactionsshortcutkey" class="table-of-contents__link toc-highlight"><code>entrypoint.[*].actions.[*].shortcut.key</code></a></li><li><a href="#entrypointactionsshortcutkind" class="table-of-contents__link toc-highlight"><code>entrypoint.[*].actions.[*].shortcut.kind</code></a></li></ul></li><li><a href="#entrypoint-preferences" class="table-of-contents__link toc-highlight">Entrypoint Preferences</a><ul><li><a href="#entrypointpreferencesid" class="table-of-contents__link toc-highlight"><code>entrypoint.[*].preferences.[*].id</code></a></li><li><a href="#entrypointpreferencesname" class="table-of-contents__link toc-highlight"><code>entrypoint.[*].preferences.[*].name</code></a></li><li><a href="#entrypointpreferencesdescription" class="table-of-contents__link toc-highlight"><code>entrypoint.[*].preferences.[*].description</code></a></li><li><a href="#entrypointpreferencestype" class="table-of-contents__link toc-highlight"><code>entrypoint.[*].preferences.[*].type</code></a></li><li><a href="#entrypointpreferencesdefault" class="table-of-contents__link toc-highlight"><code>entrypoint.[*].preferences.[*].default</code></a></li><li><a href="#entrypointpreferencesenum_valueslabel" class="table-of-contents__link toc-highlight"><code>entrypoint.[*].preferences.[*].enum_values.[*].label</code></a></li><li><a href="#entrypointpreferencesenum_valuesvalue" class="table-of-contents__link toc-highlight"><code>entrypoint.[*].preferences.[*].enum_values.[*].value</code></a></li></ul></li><li><a href="#permissions" class="table-of-contents__link toc-highlight">Permissions</a><ul><li><a href="#permissionsenvironment" class="table-of-contents__link toc-highlight"><code>permissions.[*].environment</code></a></li><li><a href="#permissionsnetwork" class="table-of-contents__link toc-highlight"><code>permissions.[*].network</code></a></li><li><a href="#permissionsfilesystemread" class="table-of-contents__link toc-highlight"><code>permissions.[*].filesystem.read</code></a></li><li><a href="#permissionsfilesystemwrite" class="table-of-contents__link toc-highlight"><code>permissions.[*].filesystem.write</code></a></li><li><a href="#permissionsexeccommand" class="table-of-contents__link toc-highlight"><code>permissions.[*].exec.command</code></a></li><li><a href="#permissionsexecexecutable" class="table-of-contents__link toc-highlight"><code>permissions.[*].exec.executable</code></a></li><li><a href="#permissionssystem" class="table-of-contents__link toc-highlight"><code>permissions.[*].system</code></a></li><li><a href="#permissionsclipboard" class="table-of-contents__link toc-highlight"><code>permissions.[*].clipboard</code></a></li><li><a href="#permissionsmain_search_bar" class="table-of-contents__link toc-highlight"><code>permissions.[*].main_search_bar</code></a></li></ul></li><li><a href="#other" class="table-of-contents__link toc-highlight">Other</a><ul><li><a href="#supported_systemos" class="table-of-contents__link toc-highlight"><code>supported_system.[*].os</code></a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Website</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs">Docs</a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://discord.gg/gFTqYUkBrW" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/project-gauntlet/gauntlet" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
