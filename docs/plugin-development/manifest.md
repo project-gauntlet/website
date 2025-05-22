@@ -189,9 +189,17 @@ Description of the action. Displayed in settings
 |----------|----------|
 | `string` | yes      |
 
+### `entrypoint.[*].actions.[*].shortcut`
+
+Shortcut that can be used to execute action
+
+| Type     | Required |
+|----------|----------|
+| `object` | false    |
+
 ### `entrypoint.[*].actions.[*].shortcut.key`
 
-Key part of shortcut that can be used to execute action.
+Key part of the shortcut
 
 <details>
 <summary>All possible key values...</summary>
