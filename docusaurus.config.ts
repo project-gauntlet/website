@@ -16,7 +16,10 @@ const config: Config = {
 
     // GitHub pages deployment config.
     organizationName: 'project-gauntlet',
-    projectName: 'gauntlet',
+    projectName: 'website',
+    deploymentBranch: 'gh-pages',
+
+    trailingSlash: false,
 
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'throw',
@@ -38,9 +41,7 @@ const config: Config = {
                     // path: "dummy",
                     sidebarPath: './sidebars.ts',
                     sidebarCollapsible: false,
-                    // Please change this to your repo.
-                    // Remove this to remove the "edit this page" links.
-                    editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+                    editUrl: 'https://github.com/project-gauntlet/website/tree/main/',
                 },
                 theme: {
                     customCss: './src/css/custom.css',
@@ -50,8 +51,6 @@ const config: Config = {
     ],
 
     themeConfig: {
-        // Replace with your project's social card
-        image: 'img/docusaurus-social-card.jpg',
         colorMode: {
             defaultMode: "dark"
         },
@@ -59,7 +58,10 @@ const config: Config = {
             title: 'Gauntlet',
             logo: {
                 alt: 'Gauntlet Logo',
-                src: 'img/logo.svg',
+                src: 'img/logo.png',
+                style: {
+                    'border-radius': '8px'
+                }
             },
             items: [
                 {
@@ -83,7 +85,7 @@ const config: Config = {
                     items: [
                         {
                             label: 'Docs',
-                            to: '/docs/introduction',
+                            to: '/docs',
                         },
                     ],
                 },

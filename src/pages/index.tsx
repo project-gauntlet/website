@@ -1,43 +1,37 @@
-import clsx from 'clsx';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
 import { ReactElement } from "react";
 
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/introduction">
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
-}
-
 export default function Home(): ReactElement {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <Layout
-      description="Description will go into a meta tag in <head />">
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
-    </Layout>
-  );
+    return (
+        <Layout
+            description="Gauntlet Application Launcher Documentation"
+            wrapperClassName={styles.layoutWrapper}
+            noFooter={true}
+        >
+            <div className={styles.hazardTapeContainer}>
+                <div className={styles.hazardTape}>
+                    <span className={styles.hazardTapeText}>
+                        Work In Progress
+                    </span>
+                    <span className={styles.hazardTapeSpacer}/>
+                    <span className={styles.hazardTapeText}>
+                        Work In Progress
+                    </span>
+                </div>
+            </div>
+            <Link
+                className={"button button--primary button--lg " + styles.docsLink}
+                to="/docs">
+                Go To Documentation
+            </Link>
+            <Link
+                className="button button--secondary button--lg"
+                to="https://discord.gg/gFTqYUkBrW">
+                Discord Server
+            </Link>
+        </Layout>
+    );
 }
