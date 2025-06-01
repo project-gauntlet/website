@@ -1,6 +1,6 @@
 ---
 title: "Troubleshooting"
-sidebar_position: 8
+sidebar_position: 9
 sidebar_label: "Troubleshooting"
 ---
 
@@ -11,7 +11,7 @@ If application panics, the crash logs are saved at following locations:
 
 - Windows: `{FOLDERID_LocalAppData}\Gauntlet\data\logs\crash.txt`
 - macOS: `$HOME/Library/Application Support/dev.project-gauntlet.gauntlet/logs/crash.txt`
-- Linux: `$XDG_STATE_HOME/gauntlet/logs/crash.txt` or `$HOME/.local/state/gauntlet/logs/crash.txt`
+- Linux: `$HOME/.local/state/gauntlet/logs/crash.txt` or `$XDG_STATE_HOME/gauntlet/logs/crash.txt`
 
 In Gauntlet each plugin is run in separate plugin runtime process, 
 if that process panics the logs will also be saved at that location but with following name: `crash-{plugin-internal-uuid}.txt`

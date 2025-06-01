@@ -61,11 +61,11 @@ For this `npm run build` command is available
 
 ## Publishing
 
-Publishing a plugin is a little different in Gauntlet than usually. It is distributed and doesn't have any central system
+Publishing a plugin may be a different in Gauntlet than use are used to. It is distributed, and doesn't have any central system
 
-Plugins are distributed as a part of the same git repository and to publish the plugin you can run `npm run publish`.
-But because during publishing process changes are being made to the git repository,
+Plugins are distributed as a part of the same git repository which contains the code (similar to GitHub Pages).
+To publish the plugin you need to run `npm run publish`. But because during publishing process changes are being made to the git repository,
 it is **strongly** encouraged to use CI/CD to do it, template repository has predefined workflow already available
 
-Compiled plugin is stored on `gauntlet/release` branch and when installing plugin using git repository url,
+Compiled plugin is stored on `gauntlet/release` branch and when installing plugin using git repository url (same as the one used for `git clone`),
 Gauntlet will download that branch and install plugin from there.

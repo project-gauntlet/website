@@ -67,11 +67,11 @@ Application is already packaged for [Arch Linux](#arch-linux) and [Nix](#nix) so
 
 Relevant CLI commands:
 
-- `$ gauntlet --minimized`
+- `gauntlet --minimized`
     - Server needs to be started when user logs in, e.g. using `systemd` service
-- `$ gauntlet open`
+- `gauntlet open`
     - Main windows is usually opened using global shortcut, this CLI command can be used in cases where global shortcut functionality is not available
-- `$ gauntlet settings`
+- `gauntlet settings`
     - Settings are usually started on demand from Gauntlet itself
 
 `.desktop` sample file can be found [here](https://github.com/project-gauntlet/gauntlet/blob/main/assets/linux/gauntlet.desktop)
