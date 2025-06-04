@@ -46,3 +46,6 @@ e.g. if global shortcuts are not supported on your system
     - `:primary`: runs [primary action](https://gauntlet.sh/docs/api-reference/actions#overview) of the entrypoint
     - `:secondary`: runs [secondary action](https://gauntlet.sh/docs/api-reference/actions#overview) of the entrypoint
 
+### `gauntlet --version`
+
+Shows Gauntlet version
