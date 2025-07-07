@@ -100,6 +100,3 @@ Relevant CLI commands:
 
 Application plugin depends on `gtk-launch`
 
-### Wayland
-
-Wayland support requires LayerShell protocol `zwlr_layer_shell_v1`
