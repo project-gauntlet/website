@@ -7,10 +7,12 @@ sidebar_label: "Installation"
 ## OS Support
 
 ### Official
+
 - Linux X11 x86_64
-- macOS M1 
+- macOS M1
 
 ### Best-effort
+
 - Linux Wayland x86_64
 - Windows x86_64
 - macOS x86_64
@@ -22,6 +24,7 @@ Although it is possible to install Gauntlet by using `.dmg` directly, applicatio
 Brew package: [link](https://formulae.brew.sh/cask/gauntlet)
 
 To install run:
+
 ```
 brew install --cask gauntlet
 ```
@@ -30,14 +33,31 @@ To start, manually open application.
 
 ## Arch Linux
 
-AUR package: [link](https://aur.archlinux.org/packages/gauntlet-bin)
+<table>
+  <tr>
+    <td><a href="https://aur.archlinux.org/packages/gauntlet-bin">gauntlet-bin</a></td>
+    <td>Latest version as a pre compiled binary. (Recommended)</td>
+  </tr>
+  <tr>
+    <td><a href="https://aur.archlinux.org/packages/gauntlet-git">gauntlet-git</a></td>
+    <td>Freshly builds gauntlet from the latest git commit.</td>
+  </tr>
+</table>
 
 To install run:
+
 ```
 yay -S gauntlet-bin
 ```
 
+Or if you prefer a fresh build directly from github:
+
+```
+yay -S gauntlet-git
+```
+
 To start `systemd` service run:
+
 ```
 systemctl --user enable --now gauntlet.service
 ```
@@ -68,11 +88,11 @@ Application is already packaged for [Arch Linux](#arch-linux) and [Nix](#nix) so
 Relevant CLI commands:
 
 - `gauntlet --minimized`
-    - Server needs to be started when user logs in, e.g. using `systemd` service
+  - Server needs to be started when user logs in, e.g. using `systemd` service
 - `gauntlet open`
-    - Main windows is usually opened using global shortcut, this CLI command can be used in cases where global shortcut functionality is not available
+  - Main windows is usually opened using global shortcut, this CLI command can be used in cases where global shortcut functionality is not available
 - `gauntlet settings`
-    - Settings are usually started on demand from Gauntlet itself
+  - Settings are usually started on demand from Gauntlet itself
 
 `.desktop` sample file can be found [here](https://github.com/project-gauntlet/gauntlet/blob/main/assets/linux/gauntlet.desktop)
 
