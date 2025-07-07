@@ -21,3 +21,4 @@ Only features that are not supported on all operating systems are listed here
 ## Notes
 1. Window Tracking on Wayland is currently only supported on wlroots-based window managers and Cosmic
 2. Some Wayland window managers like KDE or Cosmic support legacy X11 API for registering global shortcuts
+   - See [`wayland.global_shortcuts_api`](application-config.md#waylandglobal_shortcuts_api) for more information
