@@ -36,11 +36,11 @@ To start, manually open application.
 <table>
   <tr>
     <td><a href="https://aur.archlinux.org/packages/gauntlet-bin">gauntlet-bin</a></td>
-    <td>Latest version as a pre compiled binary. (Recommended)</td>
+    <td>Latest released version as a pre compiled binary. Recommended</td>
   </tr>
   <tr>
     <td><a href="https://aur.archlinux.org/packages/gauntlet-git">gauntlet-git</a></td>
-    <td>Freshly builds gauntlet from the latest git commit.</td>
+    <td>Fresh changes built from the latest git commit. Unstable, may result in missing functionality or data corruption. Use at your own risk</td>
   </tr>
 </table>
 
