@@ -17,14 +17,14 @@ Location:
 
 Whether main window is closed when it receives unfocus event. Useful for tiling window managers
 
-**Type**: `bool`<br>
+**Type**: `bool`<br/>
 **Default**: `true`
 
 ### `wayland.main_window_surface`
 
 Allows to specify which API will be used to display, position and order main window. Doesn't have effect on non-Wayland environments
 
-**Type**: `enum`<br>
+**Type**: `enum`<br/>
 **Default**: `"prefer_wlr_layer_shell"`
 
 | Value                      | Description                                                                                                                                                                                                             |
@@ -38,7 +38,7 @@ Allows to specify which API will be used to display, position and order main win
 
 Allows to specify which API (if any) will be used to register global shortcuts. Doesn't have effect on non-Wayland environments
 
-**Type**: `enum`<br>
+**Type**: `enum`<br/>
 **Default**: `"none"`
 
 | Value              | Description                                                                                                                                                           |
