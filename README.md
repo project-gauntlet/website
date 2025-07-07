@@ -8,7 +8,6 @@ In main repo
 ```bash
 npm run run-component-model-gen
 npm run run-scenarios
-npm run run-screenshot-gen
 ```
 
 In this repo
