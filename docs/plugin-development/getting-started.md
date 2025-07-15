@@ -67,5 +67,7 @@ Plugins are distributed as a part of the same git repository which contains the 
 To publish the plugin you need to run `npm run publish`. But because during publishing process changes are being made to the git repository,
 it is **strongly** encouraged to use CI/CD to do it, template repository has predefined workflow already available
 
+When using GitHub Actions make sure that workflow permissions are set to "read and write" in repository actions settings
+
 Compiled plugin is stored on `gauntlet/release` branch and when installing plugin using git repository url (same as the one used for `git clone`),
 Gauntlet will download that branch and install plugin from there.
