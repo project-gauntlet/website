@@ -45,3 +45,10 @@ Allows to specify which API (if any) will be used to register global shortcuts. 
 |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `"none"`           | Disable global shortcut functionality. User should instead use [CLI commands](./cli.md) instead and register them in windows manager/desktop environment specific way |
 | `"legacy_x11_api"` | Should be used if your windows manager/desktop environment supports legacy X11 api for global shortcuts. Notably KDE's "Legacy X11 App Support" settings option       | 
+
+### `linux.native_hud`
+
+If `true`, `showHud()` helper function will show native notification on Linux instead of custom hud window
+
+**Type**: `bool`<br/>
+**Default**: `true`
